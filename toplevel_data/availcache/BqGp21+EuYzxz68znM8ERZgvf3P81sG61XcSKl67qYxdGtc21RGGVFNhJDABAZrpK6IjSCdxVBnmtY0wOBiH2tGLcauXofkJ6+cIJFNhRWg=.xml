@@ -1,0 +1,19 @@
+<component>
+<start_date>2023-02-11</start_date>
+<end_date>2023-02-11</end_date>
+<start_time>10:30 am</start_time>
+<end_time>1:00 pm</end_time>
+<start_time_utcseconds>NOTSET</start_time_utcseconds>
+<end_time_utcseconds>NOTSET</end_time_utcseconds>
+<public_bookable>true</public_bookable>
+<date_code>10:30-13:00</date_code>
+<sale_currency>USD</sale_currency>
+<min_booking_size>1</min_booking_size>
+<spaces_remaining>200</spaces_remaining>
+<total_price>66.00</total_price>
+<total_price_display>US&amp;#36;66.00</total_price_display>
+<net_price>66.00</net_price>
+<price_breakdown><price_row rate-id="r1" label="Adult (1)" sale-currency="USD" price="66.00" price-display="US&amp;#36;66.00">Adult (1) US&amp;#36;66.00</price_row></price_breakdown>
+<note>Tour in French no pick up</note>
+<special_offer_note/>
+<component_key>BqGp21+EuYzxz68znM8ERZgvf3P81sG61XcSKl67qYxdGtc21RGGVFNhJDABAZrpK6IjSCdxVBnmtY0wOBiH2tGLcauXofkJ6+cIJFNhRWg=</component_key><cost_currency>EUR</cost_currency><supplier_note>@GL_5898_71|5879|775700</supplier_note><date_id>9616032</date_id><date_type>departure</date_type><options/><tour_id>1847</tour_id><channel_id>12130</channel_id><expires>1675527177</expires><rates><rate><rate_id>r1</rate_id><rate_count>1</rate_count></rate></rates></component>

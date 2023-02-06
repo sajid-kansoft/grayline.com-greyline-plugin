@@ -1,0 +1,1079 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Gray Line Licensee Tour CMS Plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-09 11:44+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.3; wp-6.0.2\n"
+"X-Domain: gray-line-licensee-wordpress-tourcms-plugin"
+
+#: widgets/saleBanner/saleBanner.php:144
+msgid "#F2F2F2"
+msgstr ""
+
+#: widgets/saleBanner/saleBanner.php:144
+msgid ". The default will be your brand red."
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:444
+msgid ""
+"3D Secure Payments - 2019 EU directive on secure customer authentication "
+"when making payments. Shifts fraud liability to bank rather than merchant."
+msgstr ""
+
+#: controllers/checkout.php:1464
+msgid "3D Secure Processing Required"
+msgstr ""
+
+#: controllers/checkout.php:1515
+msgid ""
+"3D Secure validation failure. You may have failed your 3DS verification, or "
+"you may have passed, but entered wrong personal, billing, or card details. "
+"Please try again."
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:411
+msgid "Accommodation"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:973
+msgid "All gecodes"
+msgstr ""
+
+#: controllers/cart.php:277
+msgid "All items are available, continue to checkout"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1160
+msgid "Alternative tours"
+msgstr ""
+
+#: widgets/tourlistblock/tourlistblock.php:148
+msgid "ANDcategory=Rafting|Hiking"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:216
+msgid "API Key"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:194
+msgid "API Settings"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:192
+msgid "API Status:"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1001
+msgid "Available"
+msgstr ""
+
+#: widgets/saleBanner/saleBanner.php:143
+msgid "Background Color"
+msgstr ""
+
+#: widgets/tourListPageBannerSection/tourListPageBannerSection.php:38
+msgid "Banner Image"
+msgstr ""
+
+#: widgets/saleBanner/saleBanner.php:130
+msgid "Banner Link"
+msgstr ""
+
+#: widgets/saleBanner/saleBanner.php:127
+msgid "Banner Text"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1187
+msgid "before you can link this Tour/Hotel to a product."
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:592
+msgid "Bing Ads"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:601
+msgid "Bing Ads UET Revenue"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:938
+msgid "Book url"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:371
+msgid "Category Search Settings"
+msgstr ""
+
+#: widgets/tourlistblock/tourlistblock.php:145
+msgid "category=Rafting"
+msgstr ""
+
+#: widgets/tourlistblock/tourlistblock.php:149
+msgid "category=Rafting&NOTcategory=Hiking"
+msgstr ""
+
+#: widgets/tourlistblock/tourlistblock.php:146
+msgid "category=San Francisco"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:208
+msgid "Channel ID"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:746
+msgid "Clear All Cached Data"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:260
+msgid "Contact No"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1641
+msgid "Contactless payments for gratuities and add-ons"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:255
+msgid "Custom Fields"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:351
+msgid "Custom Scripts"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:483
+msgid "Custom Settings"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:484
+msgid "Custom Tour List Order"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:523
+msgid "Data Abstraction Layer"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:515
+msgid ""
+"Data Abstraction Layer works in combination with Google Tag Manager, so you "
+"must have this set up -"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1685
+msgid "Date not provided"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:901
+msgid "Dates"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:632
+msgid "Default Wordpress Mail Function"
+msgstr ""
+
+#: widgets/tourAvail/tourAvail.php:7
+msgid ""
+"Display a two year calendar indicating which months have availability. Only "
+"visible on Tour/Hotel pages."
+msgstr ""
+
+#: widgets/featuredPost/featuredPost.php:5
+msgid "Displays a list of tours."
+msgstr ""
+
+#: widgets/homePageBannerSection/homePageBannerSection.php:5
+msgid "Displays home page banner"
+msgstr ""
+
+#: widgets/homePageSpecialOffer/homePageSpecialOffer.php:5
+msgid "Displays home page spaecial offer"
+msgstr ""
+
+#: widgets/locationHighlights/locationHighlights.php:5
+msgid "Displays location highlights"
+msgstr ""
+
+#: widgets/saleBanner/saleBanner.php:5
+msgid "Displays the sale banner"
+msgstr ""
+
+#: widgets/tourMap/tourMap.php:5
+msgid ""
+"Displays the starting point stored in TourCMS using Google Maps. Only "
+"visible on Tour/Hotel pages."
+msgstr ""
+
+#: widgets/tourMapBox/tourMapBox.php:5
+msgid ""
+"Displays the starting point stored in TourCMS using Mapbox. Only visible on "
+"Tour/Hotel pages."
+msgstr ""
+
+#: widgets/tourlistblock/tourlistblock.php:5
+msgid "Displays tour list block"
+msgstr ""
+
+#: widgets/tourListPageBannerSection/tourListPageBannerSection.php:5
+msgid "Displays tour list page banner"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1034
+msgid "Document"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:997
+msgid "Duration description"
+msgstr ""
+
+#: widgets/tourlistblock/tourlistblock.php:135
+msgid ""
+"E.g. 12, 13, 112 will show a block of 3 tours, whose ID values are 12, 13 "
+"and 112 respectively"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:513
+msgid "Ecommerce"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:518
+msgid "Ecommerce Tracking"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:115
+msgid "Edit Tour"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:268
+msgid "Email Address"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:593
+msgid ""
+"Enable / Disable Bing Ads UET Revenue Variable (fires on cart_complete page "
+"only)"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:566
+msgid "Enable / Disable the Facebook Pixel Code (fires on all pages)."
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:470
+msgid "Enable 3D Secure"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:241
+msgid "Enable Tour Enquiries"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:596
+msgid ""
+"Enabling this will fire a dynamic revenue price on the checkout complete "
+"page."
+msgstr ""
+
+#: controllers/tour_single.php:64
+msgid "error, there was a problem adding your item to the cart"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1051
+msgid "Essential"
+msgstr ""
+
+#: widgets/tourlistblock/tourlistblock.php:143
+msgid "Examples"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1068
+msgid "Excludes"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1080
+msgid "Experience"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:644
+msgid "External SMTP Server"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1072
+msgid "Extras / upgrades"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1632
+msgid "Face masks provided for travelers"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1631
+msgid "Face masks required for guides"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1630
+msgid "Face masks required for travelers"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:312
+msgid "Facebook Link"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:565
+msgid "Facebook Pixel"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:584
+msgid "Facebook Pixel ID e.g. 635909084322496"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:567
+msgid "Facebook Pixel Manual Integration Guide"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:572
+msgid "Facebook Pixel Tracking"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:845
+msgid "Field"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:363
+msgid "Footer Script"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:2499
+#: widgets/tourlistblock/tourlistblock.php:56
+msgid "Free Cancellation"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:716
+msgid "From"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:953
+msgid "From price"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:949
+msgid "From price (display)"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:724
+msgid "FromName"
+msgstr ""
+
+#: widgets/tourlistblock/tourlistblock.php:57
+msgid "Fully refundable when canceled up to 24 hours prior to departure"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:2500
+msgid "Fully refundable when canceled up to 24 hours prior to departure."
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1636
+msgid "Gear/equipment sanitized between use"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:969
+msgid "Geocode end (Long, Lat)"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:965
+msgid "Geocode start (Long, Lat)"
+msgstr ""
+
+#: controllers/cron_gen_currency_json.php:25
+msgid "Get exchange rates completed"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:567
+msgid "Get your FB Pixel ID - "
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:514
+msgid ""
+"Google Ecommerce Tracking - choose either: Google data layer OR standard "
+"ecommerce tracking OR neither."
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:515
+#: gray-line-licensee-wordpress-tourcms-plugin.php:516
+msgid "Google Guide"
+msgstr ""
+
+#. Name of the plugin
+msgid "Gray Line Licensee Tour CMS Plugin"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:88
+msgid "Gray Line Licensee TourCMS Plugin"
+msgstr ""
+
+#: widgets/featuredPost/featuredPost.php:36
+#: widgets/featuredPost/featuredPost.php:41
+msgid "Gray Line Magazine"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:183
+msgid "Grayline Licensee TourCMS Plugin Settings"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1638
+msgid "Guides required to wash hands"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1633
+msgid "Hand sanitizer available to travelers and staff"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:355
+msgid "Header Script"
+msgstr ""
+
+#: widgets/homePageBannerSection/homePageBannerSection.php:5
+msgid "Home page banner"
+msgstr ""
+
+#: widgets/homePageSpecialOffer/homePageSpecialOffer.php:5
+msgid "Home page special offer"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:658
+msgid "Host"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:836
+msgid "hour"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:191
+msgid "Hourly Limit:"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:834
+msgid "hours"
+msgstr ""
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "https://www.tourcms.com/"
+msgstr ""
+
+#: widgets/homePageSpecialOffer/homePageSpecialOffer.php:62
+msgid "Image"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1005
+msgid "Images"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:445
+msgid ""
+"IMPORTANT Note: if you enable 3DS payments, it must also be switched on on "
+"your payment gateway, e.g. Trust My Travel, Adyen etc"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1064
+msgid "Includes"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:336
+msgid "Instagram Link"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Integrate WordPress with TourCMS to aid creating specialist Tour, Activity "
+"and Accommodation Operator websites."
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1076
+msgid "Itinerary"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1153
+msgid "Languages spoken"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:851
+msgid "Last updated"
+msgstr ""
+
+#: widgets/tourMap/tourMap.php:5
+msgid "Legacy Tour Map"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:276
+msgid "Licensee"
+msgstr ""
+
+#: widgets/locationHighlights/locationHighlights.php:67
+#: widgets/homePageSpecialOffer/homePageSpecialOffer.php:74
+msgid "Link Text"
+msgstr ""
+
+#: widgets/saleBanner/saleBanner.php:131
+msgid "Link text will be added to end of banner text."
+msgstr ""
+
+#: widgets/saleBanner/saleBanner.php:139
+msgid "Link Text:"
+msgstr ""
+
+#: widgets/locationHighlights/locationHighlights.php:63
+#: widgets/homePageSpecialOffer/homePageSpecialOffer.php:70
+msgid "Link to URL"
+msgstr ""
+
+#: widgets/saleBanner/saleBanner.php:134
+msgid "Link to URL:"
+msgstr ""
+
+#: widgets/tourlistblock/tourlistblock.php:127
+msgid "List of Tour IDs"
+msgstr ""
+
+#: widgets/locationHighlights/locationHighlights.php:5
+msgid "Location Highlights"
+msgstr ""
+
+#: widgets/locationHighlights/locationHighlights.php:52
+msgid "Location Image"
+msgstr ""
+
+#: widgets/locationHighlights/locationHighlights.php:58
+msgid "Location Text"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1093
+msgid "Long description"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:200
+msgid "Marketplace ID"
+msgstr ""
+
+#: widgets/tourlistblock/tourlistblock.php:132
+msgid "Method 1: Tour IDs"
+msgstr ""
+
+#: widgets/tourlistblock/tourlistblock.php:142
+msgid "Method 2: TourCMS Category / Categories"
+msgstr ""
+
+#: widgets/tourlistblock/tourlistblock.php:158
+msgid "Method 3: Location"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:446
+msgid "More info"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:387
+msgid "Multi-Day Trips"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:459
+msgid "Name"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:115
+msgid "New Tour"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:912
+msgid "No dates"
+msgstr ""
+
+#: controllers/cart.php:264
+msgid "No items are available, redirect to home page"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:115
+msgid "No Tours found"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:115
+msgid "No Tours found in Trash"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:545
+msgid "None"
+msgstr ""
+
+#: widgets/tourlistblock/tourlistblock.php:159
+msgid ""
+"Note - outputs list where location matches the value set in the Primary "
+"Location field for tours"
+msgstr ""
+
+#: widgets/tourlistblock/tourlistblock.php:154
+msgid ""
+"Note: Category name(s) must matches value(s) in TourCMS exactly, no typos. "
+"Do not use & in your category names"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:501
+msgid "Off"
+msgstr ""
+
+#: widgets/homePageSpecialOffer/homePageSpecialOffer.php:68
+msgid "Offer Link"
+msgstr ""
+
+#: widgets/homePageSpecialOffer/homePageSpecialOffer.php:79
+msgid "Offer Status"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:488
+msgid "On"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:921
+msgid "On sale"
+msgstr ""
+
+#: widgets/saleBanner/saleBanner.php:144
+msgid "or"
+msgstr ""
+
+#: widgets/tourlistblock/tourlistblock.php:147
+msgid "ORcategory=Rafting|Hiking"
+msgstr ""
+
+#: widgets/tourlistblock/tourlistblock.php:133
+msgid "Output a list of tours based on their ID numbers"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:695
+msgid "Password"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:423
+msgid "Payment Gateway"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:450
+msgid "Payment gateway"
+msgstr ""
+
+#: controllers/checkout.php:1086
+msgid ""
+"Payment not taken. We now need to recheck the availability of some of your "
+"items which have expired. Redirecting..."
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1060
+msgid "Pick up / drop off"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:328
+msgid "Pinterest Link"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:594
+msgid ""
+"Please add in your UET code to the page header, through Google Tag Manager "
+"or c5 interface."
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1688
+msgid "Please provide at least one rate"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:424
+msgid "Please review your payment gateway, and enable 3D Secure Payments"
+msgstr ""
+
+#: controllers/checkout.php:643
+msgid "Please submit a promotional code"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:679
+msgid "Port"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:961
+msgid "Primary location"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:917
+msgid "Priority"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:875
+msgid "Rates"
+msgstr ""
+
+#: widgets/featuredPost/featuredPost.php:44
+msgid "Read the story"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1084
+msgid "Redemption instructions"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1639
+msgid "Regular temperature checks for staff"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1635
+msgid "Regularly sanitized high-traffic areas"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:188
+msgctxt "Remaining Hits:"
+msgid "Number of hits of API left"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:293
+msgid "Remove"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1055
+msgid "Restrictions"
+msgstr ""
+
+#: widgets/saleBanner/saleBanner.php:144
+msgid "rgba(123,123,233, 1)"
+msgstr ""
+
+#: widgets/saleBanner/saleBanner.php:5
+msgid "Sale banner"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:957
+msgid "Sale currency"
+msgstr ""
+
+#: widgets/saleBanner/saleBanner.php:119
+msgid "Sale End Date"
+msgstr ""
+
+#: widgets/saleBanner/saleBanner.php:110
+msgid "Sale Start Date"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:300
+msgid "Search Keyword"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:115
+msgid "Search Tours"
+msgstr ""
+
+#: widgets/saleBanner/saleBanner.php:146
+msgid "Select a color for the background when a user hovers"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:628
+msgid "Send Mail Method"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:517
+msgid "Senshi Guide"
+msgstr ""
+
+#: widgets/saleBanner/saleBanner.php:83
+msgid "Server time zone"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1088
+msgid "Short description"
+msgstr ""
+
+#: widgets/tourlistblock/tourlistblock.php:173
+msgid "Size of List (default is 3)"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:666
+msgid "SMTP Auth"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:703
+msgid "SMTP Secure"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:654
+msgid "SMTP Settings"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1634
+msgid "Social distancing enforced throughout experience"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:308
+msgid "Social Media Section Links"
+msgstr ""
+
+#: controllers/cart.php:290
+msgid ""
+"Some items in your cart are no longer available. We have removed the "
+"following items:"
+msgstr ""
+
+#: controllers/checkout.php:630
+msgid ""
+"Sorry, promotional codes are not valid in combination with agent discounts"
+msgstr ""
+
+#: controllers/checkout.php:654 controllers/checkout.php:661
+msgid "Sorry, that promotional code is not valid"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:2515
+#: widgets/tourlistblock/tourlistblock.php:166
+msgid "Special Offer"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:535
+msgid "Standard Ecommerce Tacking"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:516
+msgid "Standard Google Ecommerce - "
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:284
+msgid "Sub Logo Icon"
+msgstr ""
+
+#: controllers/checkout.php:1068
+msgid "success, proceed to get Spreedly payment method token"
+msgstr ""
+
+#: controllers/tour_single.php:58
+msgid "success, your item has been added to the cart"
+msgstr ""
+
+#: controllers/checkout.php:638
+msgid "success, your promo code has been accepted"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1143
+msgid "Suitable for business"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1133
+msgid "Suitable for children"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1128
+msgid "Suitable for couples"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1138
+msgid "Suitable for groups"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1123
+msgid "Suitable for solo"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1148
+msgid "Suitable for wheelchairs"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1046
+msgid "Summary"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:738
+msgid "Sync Tours"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1640
+msgid "Temperature checks for travelers upon arrival"
+msgstr ""
+
+#: widgets/homePageSpecialOffer/homePageSpecialOffer.php:56
+#: widgets/homePageSpecialOffer/homePageSpecialOffer.php:59
+msgid "Text Title"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:839
+msgid ""
+"The following data is refreshed from TourCMS each time you save this "
+"Tour/Hotel."
+msgstr ""
+
+#: widgets/saleBanner/saleBanner.php:108
+msgid "The times set below should be in the server's time zone, not your own."
+msgstr ""
+
+#: widgets/tourlistblock/tourlistblock.php:134
+msgid "This allows you to specify exactly which tours you want displayed"
+msgstr ""
+
+#: widgets/tourlistblock/tourlistblock.php:149
+msgid "This searches for all products that feature Rafting but not Hiking"
+msgstr ""
+
+#: widgets/tourlistblock/tourlistblock.php:145
+msgid "This searches for all Rafting tours"
+msgstr ""
+
+#: widgets/tourlistblock/tourlistblock.php:146
+msgid "This searches for all tours tagged with the category San Francisco"
+msgstr ""
+
+#: widgets/tourlistblock/tourlistblock.php:147
+msgid "This searches for either Rafting or Hiking tours"
+msgstr ""
+
+#: widgets/tourlistblock/tourlistblock.php:148
+msgid "This searches for tours tagged with both Rafting and Hiking"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:114
+msgid "Tour"
+msgstr ""
+
+#: widgets/tourAvail/tourAvail.php:7
+msgid "Tour Availability"
+msgstr ""
+
+#. Author of the plugin
+msgid "Tour CMS"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:871
+msgid "Tour code"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:867
+msgid "Tour ID"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1682
+msgid "Tour ID not provided"
+msgstr ""
+
+#: widgets/tourlistblock/tourlistblock.php:5
+msgid "Tour List Block"
+msgstr ""
+
+#: widgets/tourListPageBannerSection/tourListPageBannerSection.php:5
+msgid "Tour list page banner"
+msgstr ""
+
+#: widgets/tourlistblock/tourlistblock.php:129
+msgid "Tour Location"
+msgstr ""
+
+#: widgets/tourMapBox/tourMapBox.php:5
+msgid "Tour Map"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:863
+msgid "Tour name"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:224
+msgid "TourCMS Account ID"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:187
+msgid "TourCMS API Status"
+msgstr ""
+
+#: widgets/tourlistblock/tourlistblock.php:128
+msgid "TourCMS Category / Categories"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:232
+msgid "TourCMS Enquiry Key"
+msgstr ""
+
+#: widgets/featuredPost/featuredPost.php:5
+msgid "TourCMS Featured Post"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1187
+msgid "TourCMS Plugin Settings"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:113
+msgid "Tours"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:375
+msgid "Tours & Activities"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:557
+msgid "Tracking Script"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:399
+msgid "Transfer"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1637
+msgid "Transportation vehicles regularly sanitized"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:320
+msgid "Twitter Link"
+msgstr ""
+
+#: widgets/homePageSpecialOffer/homePageSpecialOffer.php:65
+msgid "Upload Image"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:616
+msgid "Use CDN for assets option"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:687
+msgid "Username"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:846
+msgid "Value"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1020
+msgid "Video"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:970
+msgid "View on Google Maps"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:115
+msgid "View Tour"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:595
+msgid "Wiki article"
+msgstr ""
+
+#: widgets/saleBanner/saleBanner.php:144
+msgid "You can enter a hex or rgba value here such as"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:195
+msgid ""
+"You can find your settings by logging into TourCMS then heading to <strong>"
+"Configuration &amp; Setup</strong> &gt; <strong>API</strong> &gt; <strong>"
+"XML API</strong>."
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:2418
+msgid "You may also like"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:1187
+msgid "You must configure the"
+msgstr ""
+
+#: gray-line-licensee-wordpress-tourcms-plugin.php:344
+msgid "You Tube Link"
+msgstr ""

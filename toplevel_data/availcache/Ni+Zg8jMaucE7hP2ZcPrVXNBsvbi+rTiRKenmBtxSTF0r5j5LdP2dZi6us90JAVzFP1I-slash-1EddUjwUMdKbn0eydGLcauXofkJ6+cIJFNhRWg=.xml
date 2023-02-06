@@ -1,0 +1,19 @@
+<component>
+<start_date>2022-12-30</start_date>
+<end_date>2022-12-30</end_date>
+<start_time>10:00 am</start_time>
+<end_time>11:00 am</end_time>
+<start_time_utcseconds>NOTSET</start_time_utcseconds>
+<end_time_utcseconds>NOTSET</end_time_utcseconds>
+<public_bookable>true</public_bookable>
+<date_code>10:00-11:00</date_code>
+<sale_currency>USD</sale_currency>
+<min_booking_size>1</min_booking_size>
+<spaces_remaining>4</spaces_remaining>
+<total_price>351.00</total_price>
+<total_price_display>US&amp;#36;351.00</total_price_display>
+<net_price>351.00</net_price>
+<price_breakdown><price_row rate-id="r1" label="Price per Gondola (up to 6 people) (1)" sale-currency="USD" price="351.00" price-display="US&amp;#36;351.00">Price per Gondola (up to 6 people) (1) US&amp;#36;351.00</price_row></price_breakdown>
+<note/>
+<special_offer_note/>
+<component_key>Ni+Zg8jMaucE7hP2ZcPrVXNBsvbi+rTiRKenmBtxSTF0r5j5LdP2dZi6us90JAVzFP1I/1EddUjwUMdKbn0eydGLcauXofkJ6+cIJFNhRWg=</component_key><cost_currency>EUR</cost_currency><supplier_note>@GL_9796_151|10113|547675</supplier_note><date_id>10210955</date_id><date_type>departure</date_type><options/><tour_id>2847</tour_id><channel_id>12130</channel_id><expires>1672199524</expires><rates/></component>

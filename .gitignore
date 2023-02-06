@@ -1,0 +1,14 @@
+# ignore cache data
+api_json/*
+
+# ignore log folder
+logs/*
+
+# ignore config file
+config.php
+
+# ignore composer lock file
+composer.lock
+
+# ignore vendor folder
+vendor/

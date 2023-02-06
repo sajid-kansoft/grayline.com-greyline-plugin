@@ -1,0 +1,4 @@
+Thu, 02 Feb 2023 04:14:04 -0600 | User landed on checkout complete page: http://localhost/wp-grayline/checkout-submit/. REFERRER http://localhost/wp-grayline/wp-admin/edit.php?s=checkout&post_status=all&post_type=page&action=-1&m=0&paged=1&action2=-1. SESS_ID: 61m6jqsbahcblej6m5a2richv0
+Thu, 02 Feb 2023 04:14:04 -0600 | Checkout submit error: No channel id Cart ID (502226), Channel ID (0), Booking ID (0)
+Mon, 06 Feb 2023 01:05:18 -0600 | User landed on checkout complete page: https://testplb3.ksplpro.in/checkout_submit/. REFERRER . SESS_ID: rgktne8i6nj5koali5sp8a492q
+Mon, 06 Feb 2023 01:05:18 -0600 | Checkout submit error: No channel id Cart ID (6), Channel ID (0), Booking ID (0)

@@ -1,0 +1,15 @@
+{
+	"name": "palisis/gray_line_licensees",
+	"description": "Integrate TourCMS with wordPress for Gray Line Licensees",
+	"type": "wordpress-website",
+  	"minimum-stability": "dev",
+  	"license": "Copyright (C) Palisis AG, Inc - All Rights Reserved",
+	"require": {
+		"tourcms/tourcms-php": "3.11.*"
+	},
+	"autoload": {
+		"psr-4": {
+		  "Inc\\": "./inc"
+		}
+	}
+}

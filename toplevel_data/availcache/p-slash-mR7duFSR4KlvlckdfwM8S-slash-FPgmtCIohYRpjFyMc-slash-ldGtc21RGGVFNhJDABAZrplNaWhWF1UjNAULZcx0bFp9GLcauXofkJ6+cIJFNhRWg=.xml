@@ -1,0 +1,164 @@
+<component>
+<start_date>2023-01-11</start_date>
+<end_date>2023-01-11</end_date>
+<start_time>8:20 am</start_time>
+<end_time>1:20 pm</end_time>
+<start_time_utcseconds>NOTSET</start_time_utcseconds>
+<end_time_utcseconds>NOTSET</end_time_utcseconds>
+<public_bookable>true</public_bookable>
+<date_code>08:20-13:20</date_code>
+<sale_currency>USD</sale_currency>
+<min_booking_size>1</min_booking_size>
+<spaces_remaining>100</spaces_remaining>
+<total_price>15.00</total_price>
+<total_price_display>US&amp;#36;15.00</total_price_display>
+<net_price>15.00</net_price>
+<price_breakdown><price_row rate-id="r1" label="Adult (1)" sale-currency="USD" price="15.00" price-display="US&amp;#36;15.00">Adult (1) US&amp;#36;15.00</price_row></price_breakdown>
+<note/>
+<special_offer_note/>
+<component_key>p/mR7duFSR4KlvlckdfwM8S/FPgmtCIohYRpjFyMc/ldGtc21RGGVFNhJDABAZrplNaWhWF1UjNAULZcx0bFp9GLcauXofkJ6+cIJFNhRWg=</component_key><cost_currency>USD</cost_currency><supplier_note>@GL_5874_39|5855|682853</supplier_note><date_id>9555840</date_id><date_type>departure</date_type><options/><pickup_points>
+<pickup>
+<pickup_key>FJR2yPVmuyF46fkwqY1xKGpJJEjjUnIvi5cMZs96Ev9yVuX9XmHo6QpQt/mveN6R</pickup_key>
+<time>07:30</time>
+<pickup_name>Hotel Dann Carlton</pickup_name>
+<pickup_id>14658</pickup_id><address1>Avenida Republica de el Salvador, Irlanda N34-337</address1><geocode>-0.183708,-78.480726</geocode></pickup>
+<pickup>
+<pickup_key>ArtuPkyixeh9NphwyI1fNkrqTT9PB/ZzFVYHqT6Py6I67EG9c2r7sqPosRdWn4hy</pickup_key>
+<time>07:30</time>
+<pickup_name>Sheraton Hotel</pickup_name>
+<pickup_id>1911</pickup_id><address1>Avenida Naciones Unidas y Avenida República de El Salvador Quito, Ecuador</address1><geocode>-0.177951,-78.479569</geocode></pickup>
+<pickup>
+<pickup_key>fQGmI6kUYJq/HGKxx944A3vpjN+EvUQgC/3SOa/lrew67EG9c2r7sqPosRdWn4hy</pickup_key>
+<time>07:40</time>
+<pickup_name>Hotel Wyndham Garden</pickup_name>
+<pickup_id>1909</pickup_id><address1>Alemania E5-103 y Republica Av, 17-21-409 Quito</address1><geocode>-0.186499,-78.488144</geocode></pickup>
+<pickup>
+<pickup_key>90Zj0kX56zGXdJnYW1l16UQfqN0Jz0ZRdsKbI6+fHpxyVuX9XmHo6QpQt/mveN6R</pickup_key>
+<time>07:55</time>
+<pickup_name>Hotel KAIA</pickup_name>
+<pickup_id>14624</pickup_id><address1>Valladolid N24-742 y Julio Zaldumbide</address1><geocode>-0.205061,-78.481162</geocode></pickup>
+<pickup>
+<pickup_key>Wc03DOCi7EnAIpMfnYIHXTv8KkTcKFefihNJt53kL1467EG9c2r7sqPosRdWn4hy</pickup_key>
+<time>07:55</time>
+<pickup_name>NH Collection Hotel</pickup_name>
+<pickup_id>1902</pickup_id><address1>12 de Octubre Ave., and Cordero 444 St. Quito  Ecuador.</address1><geocode>-0.204577,-78.484361</geocode></pickup>
+<pickup>
+<pickup_key>/y99yyR0WPCB3URIJ1Rorjv8KkTcKFefihNJt53kL1467EG9c2r7sqPosRdWn4hy</pickup_key>
+<time>07:55</time>
+<pickup_name>Swissotel</pickup_name>
+<pickup_id>1901</pickup_id><address1>Av.12 de Octubre 1820 y Luis Cordero.  Quito - Ecuador</address1><geocode>-0.205124,-78.485354</geocode></pickup>
+<pickup>
+<pickup_key>Itl6o+sCtUSirUO0wfL4IaKkNXFPKl9UIZnboXxKY+o67EG9c2r7sqPosRdWn4hy</pickup_key>
+<time>08:05</time>
+<pickup_name>Hotel JW Marriott</pickup_name>
+<pickup_id>1908</pickup_id><address1>Avenida Orellana 1172 y Avenida Amazonas · Quito, Ecuador</address1><geocode>-0.210295,-78.513345</geocode></pickup>
+<pickup>
+<pickup_key>mudiYOZu+i2EfhLoqRg8c1xf5bl7jJwthsxfqKXqXAI67EG9c2r7sqPosRdWn4hy</pickup_key>
+<time>08:10</time>
+<pickup_name>Hotel Holiday Inn Hotel</pickup_name>
+<pickup_id>1907</pickup_id><address1>Av. Orellana E6-54 Y Calle Reina Victoria Quito, Ecuador</address1><geocode>-0.198219,-78.487841</geocode></pickup>
+<pickup>
+<pickup_key>HmcVAQqH0Uo1B5lhVqETR34AgBMP1qpzYML0wnDfz4RyVuX9XmHo6QpQt/mveN6R</pickup_key>
+<time>08:15</time>
+<pickup_name>Hotel Río Amazonas</pickup_name>
+<pickup_id>14660</pickup_id><address1>Cordero E4-375 y Av. Amazonas,</address1><geocode>-0.200911,-78.491158</geocode></pickup>
+<pickup>
+<pickup_key>ShjM5mEznzEz5sdUF3V+hl+3iOtXWW9q05PsU5nm6pNyVuX9XmHo6QpQt/mveN6R</pickup_key>
+<time>08:20</time>
+<pickup_name>Galería Ecuador</pickup_name>
+<pickup_id>14289</pickup_id><address1>Reina Victoria N24-263 y Lizardo García</address1><postcode>170143</postcode><geocode>-0.201918,-78.489908</geocode></pickup>
+<pickup>
+<pickup_key>7E2FrzHJ5ePlEUsgf5a7C8Wa95hthvO4vDsXyADmJgY67EG9c2r7sqPosRdWn4hy</pickup_key>
+<time>08:20</time>
+<pickup_name>Hotel NU House</pickup_name>
+<pickup_id>1906</pickup_id><address1>Foch E6-12 y Reina Victoria, Quito - Ecuador</address1><geocode>-0.202874,-78.490899</geocode></pickup>
+<pickup>
+<pickup_key>SKsml3aoXD/WCPA2iPU1fcWa95hthvO4vDsXyADmJgY67EG9c2r7sqPosRdWn4hy</pickup_key>
+<time>08:20</time>
+<pickup_name>Reina Isabel Hotel</pickup_name>
+<pickup_id>1903</pickup_id><address1>Av. Amazonas N23-44 y Veintimilla. Quito - Ecuador</address1><geocode>-0.202552,-78.493882</geocode></pickup>
+<pickup>
+<pickup_key>wHXPRJny3RfmEaT8RLBaoELJ0bwrQmOUG9+9f+nabr467EG9c2r7sqPosRdWn4hy</pickup_key>
+<time>08:25</time>
+<pickup_name>Mercure Alameda Hotel</pickup_name>
+<pickup_id>1904</pickup_id><address1>Roca E4-122 y Amazonas Quito, Pichincha, EC1701, Ecuador</address1><geocode>-0.204770,-78.495188</geocode></pickup>
+<pickup>
+<pickup_key>naj+d8Hj9cU+v9dh3Eo/J0rqTT9PB/ZzFVYHqT6Py6I67EG9c2r7sqPosRdWn4hy</pickup_key>
+<time>08:30</time>
+<pickup_name>Hilton Colon Hotel</pickup_name>
+<pickup_id>1905</pickup_id><address1>Amazonas N 1914 Y Patria Avenida 1, Quito, Ecuador</address1><geocode>-0.207584,-78.496599</geocode></pickup>
+<pickup>
+<pickup_key>zkX0EiyOQHULF6bNwOSE/+aYtYmhQp3X1WsxptMgG7QS4nIg5iAJFVxIGINb09pn</pickup_key>
+<time>14:00</time>
+<pickup_name>Hotel Dann Carlton</pickup_name>
+<pickup_id>14658</pickup_id><address1>Avenida Republica de el Salvador, Irlanda N34-337</address1><geocode>-0.183708,-78.480726</geocode></pickup>
+<pickup>
+<pickup_key>gb9+qVf1ZWdoFVm12K+isOaYtYmhQp3X1WsxptMgG7QS4nIg5iAJFVxIGINb09pn</pickup_key>
+<time>14:00</time>
+<pickup_name>Hotel Le Parc</pickup_name>
+<pickup_id>14659</pickup_id><address1>Av. República de El Salvador N34-349 e Irlanda</address1><geocode>-0.183675,-78.480829</geocode></pickup>
+<pickup>
+<pickup_key>80+HEdVhBBU/PBQBBfZRCmqYqmvM5fFdaOURG5P0TIc4NerkqWxIW1HyY1gm2q27</pickup_key>
+<time>14:00</time>
+<pickup_name>Sheraton Hotel</pickup_name>
+<pickup_id>1911</pickup_id><address1>Avenida Naciones Unidas y Avenida República de El Salvador Quito, Ecuador</address1><geocode>-0.177951,-78.479569</geocode></pickup>
+<pickup>
+<pickup_key>hxCnNt97OTO4cLpg6ve+//Skgqsg+gt3MRw/DaD1jmk4NerkqWxIW1HyY1gm2q27</pickup_key>
+<time>14:10</time>
+<pickup_name>Hotel Wyndham Garden</pickup_name>
+<pickup_id>1909</pickup_id><address1>Alemania E5-103 y Republica Av, 17-21-409 Quito</address1><geocode>-0.186499,-78.488144</geocode></pickup>
+<pickup>
+<pickup_key>qyAVdnYs18bzzVSf0khqFuo8T2KvS3xaTqo52MAkpkkS4nIg5iAJFVxIGINb09pn</pickup_key>
+<time>14:25</time>
+<pickup_name>Hotel KAIA</pickup_name>
+<pickup_id>14624</pickup_id><address1>Valladolid N24-742 y Julio Zaldumbide</address1><geocode>-0.205061,-78.481162</geocode></pickup>
+<pickup>
+<pickup_key>hqhRy72I58xL56+z159nZRag1K8J/peLd62AoNHgpJE4NerkqWxIW1HyY1gm2q27</pickup_key>
+<time>14:25</time>
+<pickup_name>NH Collection Hotel</pickup_name>
+<pickup_id>1902</pickup_id><address1>12 de Octubre Ave., and Cordero 444 St. Quito  Ecuador.</address1><geocode>-0.204577,-78.484361</geocode></pickup>
+<pickup>
+<pickup_key>NyT6RngchNsG42KNUU7+yxag1K8J/peLd62AoNHgpJE4NerkqWxIW1HyY1gm2q27</pickup_key>
+<time>14:25</time>
+<pickup_name>Swissotel</pickup_name>
+<pickup_id>1901</pickup_id><address1>Av.12 de Octubre 1820 y Luis Cordero.  Quito - Ecuador</address1><geocode>-0.205124,-78.485354</geocode></pickup>
+<pickup>
+<pickup_key>NmIbkJfkTDr43hN8smz9PJQr33yMpXMXoCud7taikA84NerkqWxIW1HyY1gm2q27</pickup_key>
+<time>14:35</time>
+<pickup_name>Hotel JW Marriott</pickup_name>
+<pickup_id>1908</pickup_id><address1>Avenida Orellana 1172 y Avenida Amazonas · Quito, Ecuador</address1><geocode>-0.210295,-78.513345</geocode></pickup>
+<pickup>
+<pickup_key>3UateDxHspnChS9AVRJQnHC5+e5y1fQDFAIYUWJflVY4NerkqWxIW1HyY1gm2q27</pickup_key>
+<time>14:40</time>
+<pickup_name>Hotel Holiday Inn Hotel</pickup_name>
+<pickup_id>1907</pickup_id><address1>Av. Orellana E6-54 Y Calle Reina Victoria Quito, Ecuador</address1><geocode>-0.198219,-78.487841</geocode></pickup>
+<pickup>
+<pickup_key>UWmm6TE88+qC1mFaF7l8lmd7nOp7BgoXq6khMwkL9kkS4nIg5iAJFVxIGINb09pn</pickup_key>
+<time>14:45</time>
+<pickup_name>Hotel Río Amazonas</pickup_name>
+<pickup_id>14660</pickup_id><address1>Cordero E4-375 y Av. Amazonas,</address1><geocode>-0.200911,-78.491158</geocode></pickup>
+<pickup>
+<pickup_key>tx/IUR4FwwtIcAjEkPfHZ+ttfBmcrafMXg+tG4jUsA0S4nIg5iAJFVxIGINb09pn</pickup_key>
+<time>14:50</time>
+<pickup_name>Galería Ecuador</pickup_name>
+<pickup_id>14289</pickup_id><address1>Reina Victoria N24-263 y Lizardo García</address1><postcode>170143</postcode><geocode>-0.201918,-78.489908</geocode></pickup>
+<pickup>
+<pickup_key>HwYEbLQu5O5daxpiHrwZ5rKGnyBbbHu5jlXYGwRM4344NerkqWxIW1HyY1gm2q27</pickup_key>
+<time>14:50</time>
+<pickup_name>Hotel NU House</pickup_name>
+<pickup_id>1906</pickup_id><address1>Foch E6-12 y Reina Victoria, Quito - Ecuador</address1><geocode>-0.202874,-78.490899</geocode></pickup>
+<pickup>
+<pickup_key>qhnajJRqeGY+0M2/RdJIqbKGnyBbbHu5jlXYGwRM4344NerkqWxIW1HyY1gm2q27</pickup_key>
+<time>14:50</time>
+<pickup_name>Reina Isabel Hotel</pickup_name>
+<pickup_id>1903</pickup_id><address1>Av. Amazonas N23-44 y Veintimilla. Quito - Ecuador</address1><geocode>-0.202552,-78.493882</geocode></pickup>
+<pickup>
+<pickup_key>kjR7TRD9pbUbYdXc3qcHNWE+DPQElzYxdlFbHX5ttzQ4NerkqWxIW1HyY1gm2q27</pickup_key>
+<time>14:55</time>
+<pickup_name>Mercure Alameda Hotel</pickup_name>
+<pickup_id>1904</pickup_id><address1>Roca E4-122 y Amazonas Quito, Pichincha, EC1701, Ecuador</address1><geocode>-0.204770,-78.495188</geocode></pickup>
+<pickup>
+<pickup_key>g6RVvJ8tNXnc9by8XSjYt2qYqmvM5fFdaOURG5P0TIc4NerkqWxIW1HyY1gm2q27</pickup_key>
+<time>15:00</time>
+<pickup_name>Hilton Colon Hotel</pickup_name>
+<pickup_id>1905</pickup_id><address1>Amazonas N 1914 Y Patria Avenida 1, Quito, Ecuador</address1><geocode>-0.207584,-78.496599</geocode></pickup></pickup_points><tour_id>1597</tour_id><channel_id>12130</channel_id><expires>1672845056</expires><rates><rate><rate_id>r1</rate_id><rate_count>1</rate_count></rate></rates></component>

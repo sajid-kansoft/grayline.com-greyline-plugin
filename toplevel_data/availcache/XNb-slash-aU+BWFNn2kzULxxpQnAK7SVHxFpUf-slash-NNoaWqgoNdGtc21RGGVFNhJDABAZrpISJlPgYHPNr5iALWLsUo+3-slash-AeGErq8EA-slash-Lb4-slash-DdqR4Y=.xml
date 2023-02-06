@@ -1,0 +1,24 @@
+<component>
+<start_date>2023-01-14</start_date>
+<end_date>2023-01-14</end_date>
+<start_time>6:30 am</start_time>
+<end_time>9:00 pm</end_time>
+<start_time_utcseconds>NOTSET</start_time_utcseconds>
+<end_time_utcseconds>NOTSET</end_time_utcseconds>
+<public_bookable>true</public_bookable>
+<date_code/>
+<sale_currency>USD</sale_currency>
+<min_booking_size>1</min_booking_size>
+<spaces_remaining>20</spaces_remaining>
+<total_price>231.00</total_price>
+<total_price_display>US&amp;#36;231.00</total_price_display>
+<net_price>231.00</net_price>
+<price_breakdown><price_row rate-id="r1" label="Adult (1)" sale-currency="USD" price="231.00" price-display="US&amp;#36;231.00">Adult (1) US&amp;#36;231.00</price_row></price_breakdown>
+<note>English</note>
+<special_offer_note/>
+<component_key>XNb/aU+BWFNn2kzULxxpQnAK7SVHxFpUf/NNoaWqgoNdGtc21RGGVFNhJDABAZrpISJlPgYHPNr5iALWLsUo+3/AeGErq8EA/Lb4/DdqR4Y=</component_key><cost_currency>EUR</cost_currency><supplier_note>@GL_5996_69|5978|569007</supplier_note><date_id>9555848</date_id><date_type>departure</date_type><options/><pickup_on_request_key>ec2GhCRifYj41guqWMR8Jg==</pickup_on_request_key><pickup_points>
+<pickup>
+<pickup_key>qX/YEuxgv3cgvOR2pR60elKNGbpKkqqpV4lQbue9Z/k=</pickup_key>
+<time>06:30</time>
+<pickup_name>The Marmara Hotel Taksim</pickup_name>
+<pickup_id>6188</pickup_id></pickup></pickup_points><tour_id>2142</tour_id><channel_id>12130</channel_id><expires>1672837839</expires><rates><rate><rate_id>r1</rate_id><rate_count>1</rate_count></rate></rates></component>

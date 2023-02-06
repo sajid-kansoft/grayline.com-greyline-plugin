@@ -1,0 +1,19 @@
+<component>
+<start_date>2023-02-05</start_date>
+<end_date>2023-02-05</end_date>
+<start_time>1:30 pm</start_time>
+<end_time>4:30 pm</end_time>
+<start_time_utcseconds>NOTSET</start_time_utcseconds>
+<end_time_utcseconds>NOTSET</end_time_utcseconds>
+<public_bookable>true</public_bookable>
+<date_code>13:30-16:30</date_code>
+<sale_currency>USD</sale_currency>
+<min_booking_size>1</min_booking_size>
+<spaces_remaining>200</spaces_remaining>
+<total_price>122.00</total_price>
+<total_price_display>US&amp;#36;122.00</total_price_display>
+<net_price>122.00</net_price>
+<price_breakdown><price_row rate-id="r1" label="Adult (1)" sale-currency="USD" price="66.00" price-display="US&amp;#36;66.00">Adult (1) US&amp;#36;66.00</price_row><price_row rate-id="r2" label="Child (1)" sale-currency="USD" price="56.00" price-display="US&amp;#36;56.00">Child (1) US&amp;#36;56.00</price_row></price_breakdown>
+<note>Tour in German no pick up</note>
+<special_offer_note/>
+<component_key>0Li9lo8EGIzSUotRe/kGfroIt87X++8BozSFJJHY1BomLKYb7SZnXg56iJWbLLZ6K6IjSCdxVBnmtY0wOBiH2lxbWPmoN1MqeTOiaijEAUPRi3Grl6H5CevnCCRTYUVo</component_key><cost_currency>EUR</cost_currency><supplier_note>@GL_5898_71|5879|632042</supplier_note><date_id>9604769</date_id><date_type>departure</date_type><options/><tour_id>1847</tour_id><channel_id>12130</channel_id><expires>1675527485</expires><rates><rate><rate_id>r1</rate_id><rate_count>1</rate_count></rate><rate><rate_id>r2</rate_id><rate_count>1</rate_count></rate></rates></component>

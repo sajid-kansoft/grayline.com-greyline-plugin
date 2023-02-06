@@ -1,0 +1,81 @@
+<component>
+<start_date>2023-02-14</start_date>
+<end_date>2023-02-14</end_date>
+<start_time>1:30 pm</start_time>
+<end_time>5:00 pm</end_time>
+<start_time_utcseconds>NOTSET</start_time_utcseconds>
+<end_time_utcseconds>NOTSET</end_time_utcseconds>
+<public_bookable>true</public_bookable>
+<date_code>13:30-17:00</date_code>
+<sale_currency>USD</sale_currency>
+<min_booking_size>1</min_booking_size>
+<spaces_remaining>250</spaces_remaining>
+<total_price>60.00</total_price>
+<total_price_display>US&amp;#36;60.00</total_price_display>
+<was_price>110.50</was_price>
+<was_price_display>US&amp;#36;110.50</was_price_display>
+<net_price>60.00</net_price>
+<price_breakdown><price_row rate-id="r1" label="Adult (2)" sale-currency="USD" price="60.00" price-display="US&amp;#36;60.00" was-price="110.50" was-price-display="US&amp;#36;110.50">Adult (2) US&amp;#36;60.00</price_row></price_breakdown>
+<note/>
+<special_offer_note/>
+<component_key>7UVCq/plymUP7o97m0dWMnwl52xBpjvq/j3455aBxiJY+QFY5BmQX/nQUvOY9XGTlugnXDkZ1EPVpNKRR+cqjI/UPocpCulg4PMhsGX0/dQ=</component_key><cost_currency>USD</cost_currency><supplier_note>@GL_5881_8|5862|329272</supplier_note><date_id>9631481</date_id><date_type>departure</date_type><options/><pickup_on_request_key>p8Ew1TBCTeFhaiRUqHpCug==</pickup_on_request_key><pickup_points>
+<pickup>
+<pickup_key>MgSbH3aEsesOp8hr8N7nV0srptO965xjs25c6DKxOOc=</pickup_key>
+<time>11:45</time>
+<pickup_name>Golden Nugget</pickup_name>
+<pickup_id>4007</pickup_id><description>Complimentary tour pickup departs Outside of the 1st Entrance of the Golden Nugget</description><address1>129 Fremont Street Experience Las Vegas, NV</address1><postcode>89101</postcode><geocode>36.107368,-115.167985</geocode></pickup>
+<pickup>
+<pickup_key>749GAtsAGnw1cpt4HG4M/AY5h0t8mj3yWkk8nMcQFRA=</pickup_key>
+<time>11:45</time>
+<pickup_name>Orleans Hotel</pickup_name>
+<pickup_id>123</pickup_id><description>Complimentary is available at the Valet Entrance (Outside)</description><address1>4500 West Tropicana Avenue Las Vegas, NV</address1><address2>702-365-7111</address2><postcode>89103</postcode><geocode>36.102244,-115.200972</geocode></pickup>
+<pickup>
+<pickup_key>hdkAbeFlmmdres9JRj/KAz7/f8VQGNTk2pvpfEPD8qo=</pickup_key>
+<time>11:55</time>
+<pickup_name>The Strat</pickup_name>
+<pickup_id>10212</pickup_id><description>Complimentary pickup is available at the Uber / Ride Share Area</description><address1>2000 South Las Vegas Boulevard Las Vegas, NV</address1><postcode>89104</postcode></pickup>
+<pickup>
+<pickup_key>96NeiyUv8v3iPmjMMnUrFiHxyfNN+BCFJ7OdOeSxwqQ=</pickup_key>
+<time>12:00</time>
+<pickup_name>Circus Circus</pickup_name>
+<pickup_id>2906</pickup_id><description>Complimentary pickup is available at the Front Entrance Under the Clown Sign (Outside)</description><address1>2880 South Las Vegas Boulevard Las Vegas, NV</address1><address2>702-734-0410</address2><postcode>89109</postcode><geocode>36.137276,-115.162682</geocode></pickup>
+<pickup>
+<pickup_key>RRtqc0JOyYMz9NFte3aEzdAxDpG0iYkiAU+SlAF74zg=</pickup_key>
+<time>12:00</time>
+<pickup_name>Wynn Hotel</pickup_name>
+<pickup_id>14418</pickup_id><description>Complimentary tour pickup is available at the South Gate Entrance (Outside)</description><address1>3131 South Las Vegas Boulevard Las Vegas, NV</address1><address2>702-770-7000</address2><postcode>89109</postcode><geocode>36.129470,-115.164967</geocode></pickup>
+<pickup>
+<pickup_key>OcnIzWbrIn0sj3WwFf6j+yHxyfNN+BCFJ7OdOeSxwqQ=</pickup_key>
+<time>12:10</time>
+<pickup_name>Treasure Island Hotel</pickup_name>
+<pickup_id>2908</pickup_id><description>Complimentary pickup is available at the Sirens Cove Tour Bus Plaza (Outside)</description><address1>3300 S Las Vegas Blvd, Las Vegas, NV</address1><address2>702-894-7111</address2><postcode>89109</postcode><geocode>36.124454,-115.169866</geocode></pickup>
+<pickup>
+<pickup_key>F+3NcwUAKwkB4xdgsejikw==</pickup_key>
+<time>12:20</time>
+<pickup_name>Aria</pickup_name>
+<pickup_id>29</pickup_id><description>Complimentary pickup is available at the Underground Tour Lobby</description><address1>3730 S. Las Vegas Boulevard Las Vegas, NV</address1><address2>702-590-7111</address2><postcode>89158</postcode><geocode>36.107142,-115.173666</geocode></pickup>
+<pickup>
+<pickup_key>VqDgF/Mp9vlVtgmBBRSIcw==</pickup_key>
+<time>12:25</time>
+<pickup_name>Bally's</pickup_name>
+<pickup_id>33</pickup_id><description>Complimentary pickup is available at the North Door at the Top of the Ramp (Outside)</description><address1>3645 S. Las Vegas Boulevard Las Vegas, NV</address1><address2>702-967-4111</address2><postcode>89109</postcode><geocode>36.112177,-115.172797</geocode></pickup>
+<pickup>
+<pickup_key>As5HBKhDgznLA36N33wIbQ==</pickup_key>
+<time>12:30</time>
+<pickup_name>Excalibur</pickup_name>
+<pickup_id>76</pickup_id><description>Complimentary pickup is available at the Tour Rotunda (Outside)</description><address1>3850 Las Vegas Boulevard South Las Vegas, NV</address1><address2>702-597-7777</address2><postcode>89109</postcode><geocode>36.098102,-115.173094</geocode></pickup>
+<pickup>
+<pickup_key>YrZNSa8Xc9UiWK3faPQlzEsrptO965xjs25c6DKxOOc=</pickup_key>
+<time>12:35</time>
+<pickup_name>MGM Grand</pickup_name>
+<pickup_id>2998</pickup_id><description>Complimentary pickup is available at the East Entrance (Outside)</description><address1>3790 Las Vegas Blvd,South, Las Vegas, NV</address1><address2>702-891-1111</address2><postcode>89109</postcode><geocode>36.103018,-115.167689</geocode></pickup>
+<pickup>
+<pickup_key>bWm7oG5jzIgcmVNbpMVhIw==</pickup_key>
+<time>12:40</time>
+<pickup_name>Blue Green Resort / Club 36</pickup_name>
+<pickup_id>42</pickup_id><description>Complimentary pickup is available at the Main Entrance (Outside)</description><address1>372 East Tropicana Avenue Las Vegas, NV</address1><address2>702-856-2900</address2><postcode>89169</postcode><geocode>36.103338,-115.156963</geocode></pickup>
+<pickup>
+<pickup_key>5GPAWJEKRkNgpUgkc2LOfAY5h0t8mj3yWkk8nMcQFRA=</pickup_key>
+<time>12:45</time>
+<pickup_name>Tahiti Village</pickup_name>
+<pickup_id>146</pickup_id><description>Complimentary pickup is available at the Main Entrance (Outside)</description><address1>7200 Las Vegas Boulevard South Las Vegas, NV</address1><address2>702-440-6800</address2><postcode>89119</postcode><geocode>36.086754,-115.173049</geocode></pickup></pickup_points><tour_id>793</tour_id><channel_id>12130</channel_id><expires>1675168587</expires><rates><rate><rate_id>r1</rate_id><rate_count>2</rate_count></rate></rates></component>
