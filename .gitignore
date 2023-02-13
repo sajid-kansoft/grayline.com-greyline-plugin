@@ -5,10 +5,10 @@ api_json/*
 logs/*
 
 # ignore config file
-config.php
+#config.php
 
 # ignore composer lock file
 composer.lock
 
 # ignore vendor folder
-vendor/
+#vendor/
