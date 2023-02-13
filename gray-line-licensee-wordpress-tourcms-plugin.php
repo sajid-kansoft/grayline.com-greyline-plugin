@@ -4105,6 +4105,10 @@ function wp_post_details($page_location, $post_count) {
 	}
 	
 	$post_result = get_posts( $args ); 
+	if(empty($post_result)) {
+		unset($args['tax_query']);
+		$post_result = get_posts( $args ); 
+	}
 	return $post_result;
 }
 add_action('grayline_tourcms_wp_post_details', 'wp_post_details', 10, 2);
