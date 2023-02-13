@@ -3440,9 +3440,7 @@ function grayline_tourcms_get_feefo_section() {
 
 // cart count
 function grayline_tourcms_cart_count($request) {
-	
-	$num_cart_items = isset($_COOKIE["numcartitems"]) ? (int)$_COOKIE["numcartitems"] : 0;
-	return $num_cart_items;
+	return require_once 'nc/get_cart_count.php';
 }
 
 
