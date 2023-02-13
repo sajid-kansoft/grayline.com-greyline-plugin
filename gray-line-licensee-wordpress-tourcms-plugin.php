@@ -2663,6 +2663,8 @@ function grayline_tourcms_wp_related_tours($post_id) {
 
 		$product_type = get_post_meta( $post_id, 'grayline_tourcms_wp_product_type', true );
 
+		$location = get_post_meta( $post_id, 'grayline_tourcms_wp_location', true );
+
 		$alt_cnt = 0;
 		$tour_limit = 4;
 		$tour_count=0;
@@ -2736,10 +2738,15 @@ function grayline_tourcms_wp_related_tours($post_id) {
 				'post_type'=>'tour',  
 				'post_status'=>'publish', 
 				'meta_query'=> array(
-				array( 
-					'key'     => 'grayline_tourcms_wp_product_type',
-					'value'   => $product_type
-				)),
+					array( 
+						'key'     => 'grayline_tourcms_wp_product_type',
+						'value'   => $product_type
+					),
+					array( 
+						'key'     => 'grayline_tourcms_wp_location',
+						'value'   => $location
+					)
+				),
 				'posts_per_page'=> '4',
 				'post__not_in' => array($post_id),
 				'nopaging' => true
@@ -2747,7 +2754,7 @@ function grayline_tourcms_wp_related_tours($post_id) {
 
 		}
 
-		$post_list2 = new WP_Query($args);
+		$post_list2 = new WP_Query($args); 
 		if(empty($post_list2->posts)) {
 			$args = [
                    'post_type'=>'tour',  
