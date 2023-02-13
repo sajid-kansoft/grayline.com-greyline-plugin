@@ -4063,7 +4063,7 @@ function get_popular_trending_tours($args) {
 	
 	if(count($tour_details) > 0) { 
 		// set TourCMS API response into transient
-		$hours = $args['cache_hours'];
+		$hours = (int)$args['cache_hours'];
 		set_data_in_transient($cache_key, $tour_details, $hours*60*60);
 	}
 
