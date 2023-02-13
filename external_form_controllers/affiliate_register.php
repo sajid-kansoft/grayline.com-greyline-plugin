@@ -9,7 +9,7 @@ class AffiliateRegisterExternalFormBlockController
 
     public function on_start()
     {
-        $this->returnUrl = home_url("/affiliates/register/");
+        $this->returnUrl = home_url("/affiliates/affiliate-register/");
     }
 
     public function action_submit_form()

@@ -78,7 +78,7 @@ class AgentLoginExternalFormBlockController
                 $this->set('message', 'Thanks, You are now logged in');
                 */
 
-                wp_redirect(home_url("/agents/"));
+                wp_redirect(home_url("/agents/agent-login"));
                 exit;
             } else {
 

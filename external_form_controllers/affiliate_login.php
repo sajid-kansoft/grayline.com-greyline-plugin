@@ -66,7 +66,7 @@ class AffiliateLoginExternalFormBlockController
                 setcookie("tcms_ag_bk", htmlspecialchars($xml->agent_booking_key), strtotime("+1 day"), "/");
                 $_SESSION["agent_name"] = (string)$xml->name;
 
-                wp_redirect(home_url("/affiliates/login"));
+                wp_redirect(home_url("/affiliates/affiliate-login"));
                 exit;
             } else {
 
