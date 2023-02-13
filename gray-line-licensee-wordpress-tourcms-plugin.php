@@ -101,7 +101,7 @@ function grayline_tourcms_wp_adminmenu() {
 // Save post
 add_action( 'save_post', 'grayline_tourcms_wp_save_tour', 1, 2);
 
-add_action('grayline_tourcms_wp_related_tours', 'grayline_tourcms_wp_related_tours');
+add_action('grayline_tourcms_wp_related_tours', 'grayline_tourcms_wp_related_tours', 10, 1);
 
 // Add a "Settings" link to the menu
 $plugin = plugin_basename(__FILE__); 
@@ -2653,16 +2653,15 @@ function tourImageSecure($url) {
 }
 
 // Related tours
-function grayline_tourcms_wp_related_tours() { 
-	global $post;
-
-	if(!empty($post->ID)) {
-		$tour_id = get_post_meta( $post->ID, 'grayline_tourcms_wp_tour_id', true );
-		$alts = get_post_meta( $post->ID, 'grayline_tourcms_wp_alternative_tours', true );
+function grayline_tourcms_wp_related_tours($post_id) { 
+	
+	if(!empty($post_id)) {
+		$tour_id = get_post_meta( $post_id, 'grayline_tourcms_wp_tour_id', true );
+		$alts = get_post_meta( $post_id, 'grayline_tourcms_wp_alternative_tours', true );
 
 		$alts = simplexml_load_string($alts);
 
-		$product_type = get_post_meta( $post->ID, 'grayline_tourcms_wp_product_type', true );
+		$product_type = get_post_meta( $post_id, 'grayline_tourcms_wp_product_type', true );
 
 		$alt_cnt = 0;
 		$tour_limit = 4;
@@ -2703,7 +2702,7 @@ function grayline_tourcms_wp_related_tours() {
 				),
 			'orderby' => 'post_modified',
 			'order'   => 'DESC',
-			'post__not_in' => array($post->ID),
+			'post__not_in' => array($post_id),
 			'nopaging' => true
 			];  
 		} else if($alt_cnt < 3 && $alt_cnt > 0) { 
@@ -2727,7 +2726,7 @@ function grayline_tourcms_wp_related_tours() {
 					),
 				),
 				'posts_per_page'=> '4',
-				'post__not_in' => array($post->ID),
+				'post__not_in' => array($post_id),
 				'nopaging' => true
 			]; 
 
@@ -2742,13 +2741,26 @@ function grayline_tourcms_wp_related_tours() {
 					'value'   => $product_type
 				)),
 				'posts_per_page'=> '4',
-				'post__not_in' => array($post->ID),
+				'post__not_in' => array($post_id),
 				'nopaging' => true
 			]; 
 
 		}
 
 		$post_list2 = new WP_Query($args);
+		if(empty($post_list2->posts)) {
+			$args = [
+                   'post_type'=>'tour',  
+                   'post_status'=>'publish', 
+                   'posts_per_page'=> '4',
+			    'post__not_in' => array($post_id),
+			    'nopaging' => true
+              ]; 
+
+               $rel_post_list = new WP_Query($args); 
+               $tour_list = array_slice( $rel_post_list->posts, 0, 4 );
+			return $tour_list;
+		}
 
 		if(!empty($post_list2->posts)) {
 			$tour_list = array_slice( $post_list2->posts, 0, 4 );
@@ -2830,15 +2842,25 @@ require_once 'jobs/cron_cache_locations.php';
 
 add_action( 'template_redirect', 'grayline_load_external_controllers' );
 function grayline_load_external_controllers() {
-	if(is_page_template('agent_register.php')) { 
-		require_once 'external_form_controllers/agent_register.php';
-	} else if(is_page_template('agent_login.php')) {
-		require_once 'external_form_controllers/agent_login.php';
-	} else if(is_page_template('affiliate_register.php')) {
-		require_once 'external_form_controllers/affiliate_register.php';
-	} else if(is_page_template('affiliate_login.php')) {
-		require_once 'external_form_controllers/affiliate_login.php';
-	}
+
+    if(is_page_template('templates/agent-register.php')) {
+
+        require_once 'external_form_controllers/agent_register.php';
+
+    } else if(is_page_template('templates/agent-login.php')) {
+
+        require_once 'external_form_controllers/agent_login.php';
+
+    } else if(is_page_template('templates/affiliate-register.php')) {
+
+        require_once 'external_form_controllers/affiliate_register.php';
+
+    } else if(is_page_template('templates/affiliate-login.php')) {
+
+        require_once 'external_form_controllers/affiliate_login.php';
+
+    }
+
 }
 
 /*add_filter( 'template_include', 'grayline_load_external_controllers');
@@ -3419,10 +3441,8 @@ function grayline_tourcms_get_feefo_section() {
 // cart count
 function grayline_tourcms_cart_count($request) {
 	
-	$checkout = new GrayLineTourCMSControllers\Checkout();
-	$db_cart = $checkout->get_all_avail();
-	$cart_count = count($db_cart);
-	return $cart_count;
+	$num_cart_items = isset($_COOKIE["numcartitems"]) ? (int)$_COOKIE["numcartitems"] : 0;
+	return $num_cart_items;
 }
 
 
@@ -3950,6 +3970,10 @@ function get_popular_trending_tours($args) {
 			$qs .="&location=".$args['city'];
 		}
 
+		if(isset($args['suitable_for_children'])) { $qs .="&suitable_for_children=1"; }
+		if(isset($args['suitable_for_solo'])) { $qs .="&suitable_for_solo=1"; }
+		if(isset($args['suitable_for_couples'])) { $qs .="&suitable_for_couples=1"; }
+
 		$result = $tourcms->search_tours($qs, $channel_id);
 		if(empty($result->error)) {
 			// Try again to query the TourCMS API
@@ -3974,6 +3998,10 @@ function get_popular_trending_tours($args) {
 		if(isset($args['selected_tours']) && count($args['selected_tours']) >0) {
 			$tour_ids = implode(",", $args['selected_tours']);
 			$qs = "tour_id=".$tour_ids;
+
+			if(isset($args['suitable_for_children'])) { $qs .="&suitable_for_children=1"; }
+			if(isset($args['suitable_for_solo'])) { $qs .="&suitable_for_solo=1"; }
+			if(isset($args['suitable_for_couples'])) { $qs .="&suitable_for_couples=1"; }
 
 			$result = $tourcms->search_tours($qs, $channel_id);
 			if(empty($result->error)) {
@@ -4005,7 +4033,13 @@ function get_popular_trending_tours($args) {
 			} else if($args['key'] == "city-trending-tours") {
 				$qs2 .="&location=".$args['city'];
 			}
+
+			if(isset($args['suitable_for_children'])) { $qs2 .="&suitable_for_children=1"; }
+			if(isset($args['suitable_for_solo'])) { $qs2 .="&suitable_for_solo=1"; }
+			if(isset($args['suitable_for_couples'])) { $qs2 .="&suitable_for_couples=1"; }
+
 			$result2 = $tourcms->search_tours($qs2, $channel_id);
+			
 
 			if(empty($result2->error)) {
 				// Try again to query the TourCMS API
@@ -4260,3 +4294,172 @@ function grayline_tourcms_widget_ticket($request) {
 	$deals = $tourSingle->get_deals_dates((int)get_post_meta($post->ID, 'grayline_tourcms_wp_tour_id', true ));
 	$deal_date = $tourSingle->datesDeals($deals);
 }*/
+
+function tour_page_breadcrumbs() {
+	global $post;
+	$breadcrumbs_details = array();
+
+	$location = get_post_meta($post->ID, 'grayline_tourcms_wp_location', true);
+	$country = get_post_meta($post->ID, 'grayline_tourcms_wp_country_name', true);
+	$tour_name = get_post_meta($post->ID, 'grayline_tourcms_wp_tour_name', true);
+
+	// home
+	$breadcrumbs_details[0]['name'] = 'Home';
+	$breadcrumbs_details[0]['url'] = home_url("/");
+	$breadcrumbs_details[0]['arrow'] = true;
+
+
+	// country
+	$breadcrumbs_details[1]['name'] = $country;
+	$breadcrumbs_details[1]['url'] = home_url("/search?q=".$country);
+	$breadcrumbs_details[1]['arrow'] = true;
+	if(!empty($country)) {
+		$country_data = get_page_url($country, 'country');
+
+		if(isset($country_data['post_id'])) {
+			$url = get_permalink($country_data['post_id']);
+			$breadcrumbs_details[1]['url'] = $url;
+		}
+	} 
+
+	// location
+	$breadcrumbs_details[2]['name'] = $location;
+	$breadcrumbs_details[2]['url'] = home_url("/search?q=".$location);
+	$breadcrumbs_details[2]['arrow'] = false;
+	if(!empty($location)) {
+		$location_data = get_page_url($location, 'city');
+
+		if(isset($location_data['post_id'])) {
+			$url = get_permalink($location_data['post_id']);
+			$breadcrumbs_details[2]['url'] = $url;
+		}
+	}
+
+	// tour
+	/*$breadcrumbs_details[3]['name'] = $tour_name;
+	$breadcrumbs_details[3]['url'] = "#";*/
+	return $breadcrumbs_details;
+}
+
+function search_page_breadcrumbs($breadcrumbs_details) {
+
+   if(empty($breadcrumbs_details)) {
+       return;
+   }
+   $breadcrumbs = array();
+   $breadcrumbs['home'] = home_url("/");
+
+   if(isset($breadcrumbs_details['search_keyword'])) {
+       $breadcrumbs['search_keyword'] = $breadcrumbs_details['search_keyword'];
+   } else if((isset($breadcrumbs_details['country']) && isset($breadcrumbs_details['location'])) || (isset($breadcrumbs_details['country']) && !isset($breadcrumbs_details['location']))) { 
+       $country_data = get_page_url($breadcrumbs_details['country'], 'country');
+       if(isset($country_data['post_id'])) {
+           $url = get_permalink($country_data['post_id']);
+           $breadcrumbs[$breadcrumbs_details['country']] = $url;
+       } else {
+           $url = home_url("/search?q=".$breadcrumbs_details['country']);
+           $breadcrumbs[$breadcrumbs_details['country']] = $url;
+       }
+       
+       if(isset($breadcrumbs_details['location'])) {
+           $breadcrumbs['location'] = $breadcrumbs_details['location'];
+       }
+       
+   }
+   else if(!isset($breadcrumbs_details['country']) && isset($breadcrumbs_details['location'])) { 
+       $breadcrumbs['location'] = $breadcrumbs_details['location'];
+   }
+
+   return $breadcrumbs;
+}
+
+function get_page_url($name, $type) {
+        $args = array();
+        if($type == "country") {
+	        /*$args = array(
+	            'meta_key' => '_wp_page_template',
+	            'meta_value' => 'templates/country.php'
+	        );*/
+	        $args = array( 
+			'post_type' => 'page', 
+			'ignore_sticky_posts' => 1, 
+			'meta_key' => '_wp_page_template', 
+			'meta_value' => 'templates/country.php', 
+			'meta_compare' => '=',
+			'numberposts' => 100 
+			);
+	   }
+
+	   if($type == "city") { 
+	        /*$args = array(
+	            'meta_key' => '_wp_page_template',
+	            'meta_value' => 'templates/city.php'
+	        );*/ 
+
+	        $args = array( 
+			'post_type' => 'page', 
+			'ignore_sticky_posts' => 1, 
+			'meta_key' => '_wp_page_template', 
+			'meta_value' => 'templates/city.php', 
+			'meta_compare' => '=',
+			'numberposts' => 100  
+			);
+	}
+	if(!isset($args)) {
+		return;
+	}
+
+	$postlist = get_posts( $args );
+
+	$ids = array();
+	$post_ids = "";
+	foreach ( $postlist as $page ) {
+
+		$ids[] = $page->ID;
+	}
+	$post_ids = implode("', '",$ids);
+	   
+        
+        global $wpdb;
+
+        if($type == "country") {
+	        $query = $wpdb->prepare("SELECT post_id, meta_value FROM wp_postmeta 
+	                WHERE meta_key LIKE '%country' AND meta_value = '".$name."' AND post_id IN ('". $post_ids ."')");
+	       
+	        $result = $wpdb->get_row($query, ARRAY_A);  //print_r($result);exit;
+	        return $result;
+	   }
+
+	   if($type == "city") { 
+	   	$query = $wpdb->prepare("SELECT post_id, meta_value FROM wp_postmeta 
+	                WHERE meta_key LIKE '%location' AND meta_value LIKE '%".$name."%' AND post_id IN ('". $post_ids ."')");
+	     
+        $result = $wpdb->get_row($query, ARRAY_A);  
+        return $result;
+	   }
+    }
+
+function city_country_page_breadcrumbs($post_id, $post_name) {
+	$breadcrumbs_details = array();
+	// home
+	$breadcrumbs_details[0]['name'] = 'Home';
+	$breadcrumbs_details[0]['url'] = home_url("/");
+	$breadcrumbs_details[0]['arrow'] = true;
+
+	$selected_page_detail = get_field('breadcrumb_link_page', $post_id);
+	
+	// selected page
+	if(!empty($selected_page_detail)) {
+		$breadcrumbs_details[1]['name'] = $selected_page_detail->post_title;
+		$breadcrumbs_details[1]['url'] = get_permalink($selected_page_detail->ID);
+		$breadcrumbs_details[1]['arrow'] = true;
+
+		$breadcrumbs_details[2]['name'] = $post_name;
+		$breadcrumbs_details[2]['arrow'] = false;
+	} else {
+		$breadcrumbs_details[1]['name'] = $post_name;
+		$breadcrumbs_details[1]['arrow'] = false;
+	}
+
+	return $breadcrumbs_details;
+}

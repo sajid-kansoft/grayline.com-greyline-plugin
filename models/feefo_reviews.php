@@ -24,7 +24,7 @@ class FeefoReviews
      */
     function __construct($feefoObject, $vendorRef, $limit, $config = array())
     {
-      
+
         $this->vendorRef = $vendorRef;
 
         $cache_location = $config["cache_location"];

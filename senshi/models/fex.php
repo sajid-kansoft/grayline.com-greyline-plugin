@@ -230,23 +230,26 @@ class Fex {
             // we need to generate a currency cookie based on the user's geolocation
             else {  
                 $this->selected_currency = $this->countryToCurrency();
+
                 $this->palisisCookie->setCookie(self::COOKIE_NAME, $this->selected_currency);
                 return true;
             }
-        } catch (InternalException $e) {
-            error_log("Choose currency error: " . $e->getMessage());
-        } catch (Exception $e) {
-            error_log("Choose currency error: " . $e->getMessage());
-            // we default to USD in all scenarios, don't want to break the site here
-            $this->selected_currency = self::DEF_CURRENCY;
-            $this->palisisCookie->setCookie(self::COOKIE_NAME, $this->selected_currency);
-            return true;
+        } //catch (InternalException $e) {
+        //     error_log("Choose currency error: " . $e->getMessage());
+        // } 
+            catch (\Exception $e) {
+                error_log("Choose currency error: " . $e->getMessage());
+                // we default to USD in all scenarios, don't want to break the site here
+                $this->selected_currency = self::DEF_CURRENCY;
+                $this->palisisCookie->setCookie(self::COOKIE_NAME, $this->selected_currency);
+                return true;
         }
     }
 
     private function countryToCurrency()
     { 
        $country_name = $this->geoLocate->getCountryName(); 
+
         if (!empty($country_name) && $country_name !== "") {
 
             $geo_dir = GRAYLINE_LICENSEE_WORDPRESS_TOURCMS_PLUGIN_PATH.'/libraries/3rdparty/maxmind';
@@ -260,6 +263,7 @@ class Fex {
             }
 
             $currency_nodes = $country_currencies->xpath("//ISO_CURRENCY[ENTITY='".$country_name."']");
+
             if (is_array($currency_nodes) && count($currency_nodes) > 0) {
                 $loc_currency = $currency_nodes[0]->ALPHABETIC_CODE;
                 $loc_currency = strtoupper($loc_currency);
@@ -273,6 +277,7 @@ class Fex {
                 }
 
                 if (!in_array(strtoupper($loc_currency), $this->allowed_currencies)) {
+
                     throw new \InternalException("Currency ($loc_currency) located for user country ($country_name) is NOT in allowed list of currencies", 'DEFAULT');
                 }
                 else {

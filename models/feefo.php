@@ -4,17 +4,13 @@ class Feefo{
 
     // Wrapper for the Feefo API
     protected $baseUrl                 = "https://api.feefo.com/api/";
-    protected $merchantId              = "gray-line";
+    protected $merchantId              = "";
     protected $acceptLang				= "&accept-language=";
     protected $locale					= "en";
     protected $imageNameStr				= 'grayline-product-stars_';
 
     function __construct() {
         $this->merchantId = FEEFO_MERCHANT_ID;
-        if($this->merchantId  == "") {
-            $this->merchantId = "gray-line";
-        }
-
         $langCode = LANG_CODE;
         
         if (TRANSLATE)
@@ -65,6 +61,7 @@ class Feefo{
     public function getProductFeedback($vendorRef, $params = "") {
         $vendorRef     = rawurlencode($vendorRef); 
         $requestString = 'xmlfeedback?' . $params . '&merchantidentifier=' . $this->merchantId . '&vendorref=' . $vendorRef . "&since=all&minimumproductstarrating=3" . $this->acceptLang;
+
         return $this->request($requestString);
     }
 

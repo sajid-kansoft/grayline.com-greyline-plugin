@@ -368,7 +368,7 @@ class TourSingle extends MainController {
 
 		// client might want to switch off for time being
 		if (get_option('grayline_tourcms_wp_feefo_show') != 1)
-		{   
+		{
 			$feefoHide  = true;
 			$feefo_data = null;
 			$hasReviews = false;
@@ -401,10 +401,17 @@ class TourSingle extends MainController {
 		$price_brekdown = $args['price_brekdown'] ? $args['price_brekdown'] : null;
 		$pickup_point=$args['pickup_point'] ? $args['pickup_point'] : 0;
 		$cart_button=$args['cart_button'] ? $args['cart_button'] : 0;
+		$display_price=$args['display_price'] ? $args['display_price'] : 0;
+		$display_was_price=$args['display_was_price'] ? $args['display_was_price'] : 0;
+		$displayCurrency=$args['displayCurrency'] ? $args['displayCurrency'] : '';
+
 		// check on special offer 
 		if ($was_price === $total_price) {
 			$offer = false;
 		}
+
+
+
 		// don't divide by zero - fatal error
 		if ($offer && $was_price > 0) :
 			$percentage_discount = ceil((1 - ($total_price / $was_price)) * 100);
@@ -466,7 +473,7 @@ class TourSingle extends MainController {
 		        foreach ($price_brekdown as $pb) : ?>
 		          <div class="d-flex align-items-center justify-content-between">
 		            <div id="bd-quant-rate"><span id="bd-quant-int"><?php echo $pb['quant'] ?></span> x <span id="bd-rate"><?php echo $pb['rate'] ?></span></div>
-		            <div id="bd-price">US$ <?php echo $pb['price'] ?></div>
+		            <div id="bd-price"> <?php echo $pb['price'] ?></div>
 		          </div>
 		      <?php endforeach;
 		      endif; ?>
@@ -486,8 +493,8 @@ class TourSingle extends MainController {
 		          <span class="d-block mb-1">
 		            <small class="text-muted">Total Price</small>
 		          </span>
-		          <span class="d-block price-list fs-4 fw-500 text-offer lh-s">US$ <?php echo $total_price ?></span>
-		          <span class="d-block mt-2 text-muted small"><s>US$ <?php echo $was_price ?></s> <span class="text-offer">-<?php echo $percentage_discount ?>%</span></span>
+		          <span class="d-block price-list fs-4 fw-500 text-offer lh-s" data-currency="<?php echo $displayCurrency;?>"  data-price ="<?php echo $total_price;?>"> <?php echo $display_price ?></span>
+		          <span class="d-block mt-2 text-muted small" ><s data-currency="<?php echo $displayCurrency;?>"  data-price ="<?php echo $was_price;?>"> <?php echo $display_was_price ?></s> <span class="text-offer">-<?php echo $percentage_discount ?>%</span></span>
 
 		        <?php endif; // offer 
 		        ?>
@@ -495,7 +502,8 @@ class TourSingle extends MainController {
 		          <span class="d-block mb-1">
 		            <small class="text-muted">Total Price</small>
 		          </span>
-		          <span class="d-block price-list fs-4 fw-500 lh-s mb-2">US$ <?php echo $total_price ?></span>
+		          <span class="d-block price-list fs-4 fw-500 lh-s mb-2"
+		          data-currency="<?php echo $displayCurrency;?>"  data-price ="<?php echo $total_price;?>"> <?php echo $display_price ?></span>
 		        <?php endif; // notoffer 
 		        ?>
 		        <small class="d-block text-muted xs">All taxes and fees included</small>
@@ -525,6 +533,24 @@ class TourSingle extends MainController {
 		
 		</div>
 	<?php }
+
+
+public function get_tag($post_ID) {
+		
+		$default_tags = array('Hop on hop off', 'City card', 'Bike Tour', 'Boat Tour', 'Walking Tour', 'Food Tour (Food)', 'Museums', 'Theme Parks', 'Day trip', 'Multiday trip', 'Entrance Tickets', 'Classes');
+
+		$tour_tags = get_post_meta($post_ID, 'grayline_tourcms_wp_tour_tags', true );
+		$tour_tags = explode(",", $tour_tags);
+		//print_r($tour_tags);exit;
+		if(count($tour_tags) > 0) {
+			foreach($default_tags as $default_tag) {
+				if(in_array(str_replace(" ", "-", strtolower($default_tag)), $tour_tags)) {
+					return $default_tag;
+				}
+			}
+		}
+	}
+
 	/*public function generateBread( $sep ) {
 
         // First we will look for a defined parent page in TourCMS

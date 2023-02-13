@@ -260,7 +260,7 @@ class CartController extends MainController
             $pickup_choice = isset($_POST["final_pickup_choice"]) ? $_POST["final_pickup_choice"] : "";
 
             // If the customer has chosen a pickup point
-            if ($pickup_choice == "chosen") {
+            if ($pickup_choice == "fchosen") {
                 $pickup_id = isset($_POST["pickup_id"]) ? $_POST["pickup_id"] : "";
                 $pickup_key = isset($_POST["pickup_point"]) ? $_POST["pickup_point"] : "";
 

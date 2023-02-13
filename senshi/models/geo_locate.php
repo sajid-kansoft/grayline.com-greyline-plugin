@@ -71,6 +71,7 @@ class GeoLocate
 
             return true;
         } 
+        
         $ip = $this->getIp();
 
         

@@ -275,7 +275,7 @@ class TourSearchController extends MainController
 
         // Search page breadcrumbs
         if(count($this->breadcrumbs)) {
-            $this->search_results->breadcrumb = $this->search_page_breadcrumbs($this->breadcrumbs);
+            $this->search_results->breadcrumb = search_page_breadcrumbs($this->breadcrumbs);
             
         }
 
@@ -320,61 +320,19 @@ class TourSearchController extends MainController
         return $result;
     }
 
-    public function search_page_breadcrumbs($breadcrumbs_details) {
-
-        if(empty($breadcrumbs_details)) {
-            return;
-        }
-        $breadcrumbs = array();
-        $breadcrumbs['home'] = home_url("/");
-
-        if(isset($breadcrumbs_details['search_keyword'])) {
-            $breadcrumbs['search_keyword'] = $breadcrumbs_details['search_keyword'];
-        } else if((isset($breadcrumbs_details['country']) && isset($breadcrumbs_details['location'])) || (isset($breadcrumbs_details['country']) && !isset($breadcrumbs_details['location']))) { 
-            $country_data = $this->get_country_page_url($breadcrumbs_details['country']);
-            if(isset($country_data['post_id'])) {
-                $url = get_permalink($country_data['post_id']);
-                $breadcrumbs[$breadcrumbs_details['country']] = $url;
-            } else {
-                $url = home_url("/search?q=".$breadcrumbs_details['country']);
-                $breadcrumbs[$breadcrumbs_details['country']] = $url;
-            }
-            
-            if(isset($breadcrumbs_details['location'])) {
-                $breadcrumbs['location'] = $breadcrumbs_details['location'];
-            }
-            
-        }
-        else if(!isset($breadcrumbs_details['country']) && isset($breadcrumbs_details['location'])) { 
-            $breadcrumbs['location'] = $breadcrumbs_details['location'];
-        }
-
-        return $breadcrumbs;
-    }
-
-    public function get_country_page_url($country_name) {
-        global $wpdb;
-
-        $pages = get_pages(array(
-            'meta_key' => '_wp_page_template',
-            'meta_value' => 'templates/country.php'
-        ));
-
-        $ids = array();
-        if(isset($pages)) {
-            foreach($pages as $page) { 
-                $ids[] = $page->ID;
-            }
-            $post_ids = implode("', '",$ids);
-        }
+    public function get_tour_tag($tour_tags) {
         
-       
-       $query = $wpdb->prepare("SELECT post_id, meta_value FROM wp_postmeta 
-                WHERE meta_key LIKE '%country' AND meta_value = '".$country_name."' AND post_id IN ('". $post_ids ."')");
-       
-        $result = $wpdb->get_row($query, ARRAY_A);  //print_r($result);exit;
-        return $result;
+        $default_tags = array('Hop on hop off', 'City card', 'Bike Tour', 'Boat Tour', 'Walking Tour', 'Food Tour (Food)', 'Museums', 'Theme Parks', 'Day trip', 'Multiday trip', 'Entrance Tickets', 'Classes');
+        
+        if(count($tour_tags) > 0) {
+            foreach($default_tags as $default_tag) {
+                if(in_array(str_replace(" ", "-", strtolower($default_tag)), $tour_tags)) {
+                    return $default_tag;
+                }
+            }
+        }
     }
+    
     /*public function view()
     {
         $search_params = $this->search_params;
