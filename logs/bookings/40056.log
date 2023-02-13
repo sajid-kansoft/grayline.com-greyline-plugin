@@ -1,0 +1,22 @@
+Fri, 04 Nov 2022 11:12:17 +0000 | Payment gateway is : SPRE
+Fri, 04 Nov 2022 11:12:17 +0000 | spreedlyPayment USD 26.95
+Fri, 04 Nov 2022 11:12:17 +0000 | spreedly_create_payment xml: <?xml version="1.0"?><payment><spreedly_payment_method>1w8XVASR4ZTaDdcaue6jGUUNKZ8</spreedly_payment_method><booking_id>40056</booking_id><payment_value>26.95</payment_value><payment_currency>USD</payment_currency><paid_by>A</paid_by><payment_note>Agent KanSOFT Retail Agent Gray Line, Payment by A</payment_note><browser_info>eyJ3aWR0aCI6MTQ2MywiaGVpZ2h0Ijo4MjMsImRlcHRoIjoyNCwidGltZXpvbmUiOi0zMzAsInVzZXJfYWdlbnQiOiJNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTA2LjAuMC4wIFNhZmFyaS81MzcuMzYiLCJqYXZhIjpmYWxzZSwibGFuZ3VhZ2UiOiJlbi1VUyIsImJyb3dzZXJfc2l6ZSI6IjA1IiwiYWNjZXB0X2hlYWRlciI6InRleHQvaHRtbCxhcHBsaWNhdGlvbi94aHRtbCt4bWwsYXBwbGljYXRpb24veG1sO3E9MC45LGltYWdlL2F2aWYsaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMztxPTAuOSJ9</browser_info></payment>
+Fri, 04 Nov 2022 11:12:18 +0000 | spreedly_create_payment result: <?xml version="1.0" encoding="utf-8"?><response><request>POST /c/booking/payment/spreedly/new.xml</request><error>OK</error><booking><booking_id>40056</booking_id></booking></response>
+Fri, 04 Nov 2022 11:12:18 +0000 | No errors, redirect user to complete checkout page, booking ID is 40056
+Fri, 04 Nov 2022 11:12:18 +0000 | AGENT BOOKING Customer ID: 32131529, Channel ID: self::, 
+ XML: : <?xml version="1.0" encoding="utf-8"?><response><request>POST /c/booking/payment/spreedly/new.xml</request><error>OK</error><booking><booking_id>40056</booking_id></booking></response>
+Fri, 04 Nov 2022 11:12:18 +0000 | Spreedly Payment Exception AGENT BOOKING Customer ID: 32131529, Channel ID: self::, 
+ XML: <?xml version="1.0"?>
+<payment><spreedly_payment_method>1w8XVASR4ZTaDdcaue6jGUUNKZ8</spreedly_payment_method><booking_id>40056</booking_id><payment_value>26.95</payment_value><payment_currency>USD</payment_currency><paid_by>A</paid_by><payment_note>Agent KanSOFT Retail Agent Gray Line, Payment by A</payment_note><browser_info>eyJ3aWR0aCI6MTQ2MywiaGVpZ2h0Ijo4MjMsImRlcHRoIjoyNCwidGltZXpvbmUiOi0zMzAsInVzZXJfYWdlbnQiOiJNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvMTA2LjAuMC4wIFNhZmFyaS81MzcuMzYiLCJqYXZhIjpmYWxzZSwibGFuZ3VhZ2UiOiJlbi1VUyIsImJyb3dzZXJfc2l6ZSI6IjA1IiwiYWNjZXB0X2hlYWRlciI6InRleHQvaHRtbCxhcHBsaWNhdGlvbi94aHRtbCt4bWwsYXBwbGljYXRpb24veG1sO3E9MC45LGltYWdlL2F2aWYsaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMztxPTAuOSJ9</browser_info></payment>
+
+ Result: <?xml version="1.0" encoding="utf-8"?>
+<response>
+<request>POST /c/booking/payment/spreedly/new.xml</request>
+<error>OK</error>
+<booking>
+<booking_id>40056</booking_id>
+
+</booking>
+</response>
+
+

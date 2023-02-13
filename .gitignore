@@ -1,8 +1,8 @@
 # ignore cache data
-api_json/*
+#api_json/*
 
 # ignore log folder
-logs/*
+#logs/*
 
 # ignore config file
 #config.php
