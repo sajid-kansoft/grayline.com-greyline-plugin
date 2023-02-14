@@ -2663,6 +2663,8 @@ function grayline_tourcms_wp_related_tours($post_id) {
 
 		$product_type = get_post_meta( $post_id, 'grayline_tourcms_wp_product_type', true );
 
+		$location = get_post_meta( $post_id, 'grayline_tourcms_wp_location', true );
+
 		$alt_cnt = 0;
 		$tour_limit = 4;
 		$tour_count=0;
@@ -2736,10 +2738,15 @@ function grayline_tourcms_wp_related_tours($post_id) {
 				'post_type'=>'tour',  
 				'post_status'=>'publish', 
 				'meta_query'=> array(
-				array( 
-					'key'     => 'grayline_tourcms_wp_product_type',
-					'value'   => $product_type
-				)),
+					array( 
+						'key'     => 'grayline_tourcms_wp_product_type',
+						'value'   => $product_type
+					),
+					array( 
+						'key'     => 'grayline_tourcms_wp_location',
+						'value'   => $location
+					)
+				),
 				'posts_per_page'=> '4',
 				'post__not_in' => array($post_id),
 				'nopaging' => true
@@ -2747,7 +2754,7 @@ function grayline_tourcms_wp_related_tours($post_id) {
 
 		}
 
-		$post_list2 = new WP_Query($args);
+		$post_list2 = new WP_Query($args); 
 		if(empty($post_list2->posts)) {
 			$args = [
                    'post_type'=>'tour',  
@@ -3440,9 +3447,7 @@ function grayline_tourcms_get_feefo_section() {
 
 // cart count
 function grayline_tourcms_cart_count($request) {
-	
-	$num_cart_items = isset($_COOKIE["numcartitems"]) ? (int)$_COOKIE["numcartitems"] : 0;
-	return $num_cart_items;
+	return require_once 'nc/get_cart_count.php';
 }
 
 
@@ -4065,7 +4070,7 @@ function get_popular_trending_tours($args) {
 	
 	if(count($tour_details) > 0) { 
 		// set TourCMS API response into transient
-		$hours = $args['cache_hours'];
+		$hours = (int)$args['cache_hours'];
 		set_data_in_transient($cache_key, $tour_details, $hours*60*60);
 	}
 
@@ -4105,6 +4110,10 @@ function wp_post_details($page_location, $post_count) {
 	}
 	
 	$post_result = get_posts( $args ); 
+	if(empty($post_result)) {
+		unset($args['tax_query']);
+		$post_result = get_posts( $args ); 
+	}
 	return $post_result;
 }
 add_action('grayline_tourcms_wp_post_details', 'wp_post_details', 10, 2);
@@ -4244,9 +4253,9 @@ function grayline_tourcms_get_currency_rates() {
 // Feefo service reviews start
 function grayline_tourcms_get_feefo_service_reviews_daily() { 
 	$args = array( false ); 
-	if ( ! wp_next_scheduled( 'grayline_tourcms_sync_daily_feefo_service_reviews', $args ) ) { 
+	//if ( ! wp_next_scheduled( 'grayline_tourcms_sync_daily_feefo_service_reviews', $args ) ) { 
 		wp_schedule_event( time(), 'daily', 'grayline_tourcms_sync_daily_feefo_service_reviews', $args );
-	}
+	//}
 }
 add_action('init', 'grayline_tourcms_get_feefo_service_reviews_daily', 1);
 add_action( 'grayline_tourcms_sync_daily_feefo_service_reviews', 'grayline_tourcms_get_feefo_service_reviews' );

@@ -3,14 +3,14 @@
 class Feefo{
 
     // Wrapper for the Feefo API
-    protected $baseUrl                 = "https://api.feefo.com/api/";
-    protected $merchantId              = "";
+    protected $baseUrl                  = "https://api.feefo.com/api/";
+    protected $merchantId               = "";
     protected $acceptLang				= "&accept-language=";
     protected $locale					= "en";
     protected $imageNameStr				= 'grayline-product-stars_';
 
     function __construct() {
-        $this->merchantId = FEEFO_MERCHANT_ID;
+        $this->merchantId = FEEFO_MERCHANT_ID; 
         $langCode = LANG_CODE;
         
         if (TRANSLATE)

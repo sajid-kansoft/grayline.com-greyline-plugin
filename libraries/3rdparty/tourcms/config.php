@@ -15,7 +15,7 @@ $cacheBust = md5('newlaunch2019v173');
 $adyen_version = "4.5.0";
 $release_version = "5.0.2";
 
-$production = true;
+$production = false;
 $tmtStage = false;
 $urlAgents = '';
 $localhost = false;

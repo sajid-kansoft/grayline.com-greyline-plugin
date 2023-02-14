@@ -48,7 +48,7 @@ class AffiliateLoginExternalFormBlockController
             //curl_setopt($ch,CURLOPT_POST, count($info));
             //curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_CAINFO, "C:/wamp64/www/ca-bundle.crt");
+//            curl_setopt($ch, CURLOPT_CAINFO, "C:/wamp64/www/ca-bundle.crt");
             //execute post
             $response = curl_exec($ch);
 
@@ -66,7 +66,7 @@ class AffiliateLoginExternalFormBlockController
                 setcookie("tcms_ag_bk", htmlspecialchars($xml->agent_booking_key), strtotime("+1 day"), "/");
                 $_SESSION["agent_name"] = (string)$xml->name;
 
-                wp_redirect(home_url("/affiliates/login"));
+                wp_redirect(home_url("/affiliates/affiliate-login"));
                 exit;
             } else {
 
@@ -85,7 +85,7 @@ class AffiliateLoginExternalFormBlockController
             wp_redirect($login_page_url. $params);
         } else {
 
-             wp_redirect(home_url("/affiliate/. $params"));
+             wp_redirect(home_url("/affiliate/affiliate-login/. $params"));
         }
 
     }

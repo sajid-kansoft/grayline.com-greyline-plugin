@@ -25,7 +25,7 @@
 		//public $first_tour_num = 1;
 		//public $last_tour_num = 1;
 		
-		public $poss_filters = array("Best sellers", "Deals", "Low to high", "High to low");
+		public $poss_filters = array("Best sellers", "Deals", "Low to high", "High to low", "Rating");
 		public $filter = "Best sellers";
 		//public $filter_not_set = false;
 		
@@ -167,6 +167,7 @@
 				}
 			}
 			
+			
 			// Filter
 			if(!empty($params["filter"])) {	
 				if(in_array($params["filter"], $this->poss_filters)) {
@@ -188,6 +189,10 @@
 							$params["order"] = "price_down";
 							unset($params["has_offer"]);
 							break;
+						case "Rating":
+						    $params["order"] = "rating_down";
+						    unset($params["has_offer"]);
+						    break;
 					}
 				}
 			} /*else {

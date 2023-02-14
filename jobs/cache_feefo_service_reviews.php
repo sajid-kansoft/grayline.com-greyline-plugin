@@ -59,7 +59,7 @@ class CacheFeefoServiceReviews
 	    $ch = curl_init();
 	    curl_setopt($ch, CURLOPT_URL, $url);
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	    curl_setopt($ch, CURLOPT_CAINFO, "C:/wamp64/www/ca-bundle.crt");
+	    //curl_setopt($ch, CURLOPT_CAINFO, "C:/wamp64/www/ca-bundle.crt");
 	    $outcome = curl_exec($ch);
 	    $response = json_decode($outcome, true);
 		if(empty($response['reviews'])) {

@@ -42,7 +42,7 @@ class CacheFeefoProductReviews
 
 					$url = $feefo_url . "?merchant_identifier=".$merchant_identifier."&rating=".$product_review_rating."&tags=productbrand:".$productbrand."&page_size=3&page=1";
 			        
-					$reviews = $this->get_product_reviews($url);
+					$reviews = $this->get_product_reviews($url); 
 					$reviews_in_arr = (!empty($reviews))? json_decode($reviews, true) : array();
 					if(!empty($reviews_in_arr['reviews'])) {
 						$transient_key = "feefo_product_reviews_".$productbrand;
@@ -74,7 +74,7 @@ class CacheFeefoProductReviews
 	    $ch = curl_init();
 	    curl_setopt($ch, CURLOPT_URL, $url);
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	    curl_setopt($ch, CURLOPT_CAINFO, "C:/wamp64/www/ca-bundle.crt");
+	    //curl_setopt($ch, CURLOPT_CAINFO, "C:/wamp64/www/ca-bundle.crt");
 	    $outcome = curl_exec($ch);
 	    $response = json_decode($outcome, true);
 		if(empty($response['reviews'])) {

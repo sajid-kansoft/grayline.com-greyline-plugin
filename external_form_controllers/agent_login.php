@@ -56,7 +56,7 @@ class AgentLoginExternalFormBlockController
             //curl_setopt($ch,CURLOPT_POST, count($info));
             //curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_CAINFO, "C:/wamp64/www/ca-bundle.crt");
+     //       curl_setopt($ch, CURLOPT_CAINFO, "C:/wamp64/www/ca-bundle.crt");
             //execute post
             $response = curl_exec($ch);
 
@@ -78,7 +78,7 @@ class AgentLoginExternalFormBlockController
                 $this->set('message', 'Thanks, You are now logged in');
                 */
 
-                wp_redirect(home_url("/agents/"));
+                wp_redirect(home_url("/agents/agent-login/"));
                 exit;
             } else {
 
@@ -97,7 +97,7 @@ class AgentLoginExternalFormBlockController
             wp_redirect($login_page_url. $params);
         } else {
 
-             wp_redirect(home_url("/agents/. $params"));
+             wp_redirect(home_url("/agents/agent-login/. $params"));
         }
         
 

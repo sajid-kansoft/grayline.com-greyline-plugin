@@ -55,8 +55,8 @@ class FeefoReviews
             
             $xmlData = file_get_contents($cache_file);
             if (trim($xmlData) != '') {
-                $result = simplexml_load_file($cache_file);
-                $loaded_cache = true;
+                //$result = simplexml_load_file($cache_file);
+                //$loaded_cache = true;
             }
         } 
         if (!$loaded_cache) { 
