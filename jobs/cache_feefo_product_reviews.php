@@ -60,7 +60,7 @@ class CacheFeefoProductReviews
 			}
 			
 
-		} catch (Exception $e) {
+		} catch (\Exception $e) {
 			error_log("Feefo Product Reviews Cron Error: ".$e->getMessage());
         }
 	}

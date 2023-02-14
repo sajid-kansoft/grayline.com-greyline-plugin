@@ -221,7 +221,7 @@ class TourSearchController extends MainController
             $search_params['location'] = null;
             $search_params['country'] = 'KR';
         }
-
+        
         $this->search_results = new Tours($tourcms, $search_params);
 
         // Handle no results from destination search

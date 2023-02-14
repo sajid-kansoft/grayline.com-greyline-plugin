@@ -1,4 +1,7 @@
 <?php
+
+defined('GRAYLINE_WORDPRESS_TOURCMS_PLUGIN_EXECUTE') or die("Access Denied.");
+
 /**
  * get_currency.php
  * 
@@ -78,7 +81,7 @@ try {
     $object->setRates($rates);
     
     $result = $object->checkAvailability();
-    
+   
 //    print_r($result);
 //    print_r($object);
     $json['error'] = 0;

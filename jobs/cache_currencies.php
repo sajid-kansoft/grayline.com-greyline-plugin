@@ -27,9 +27,9 @@ class CacheCurrencies {
 		    $this->loadGenFex();
         } catch (InternalException $e) {
             return "Fail" . $e->getMessage();
-        } catch (PublicException $e) {
+        } catch (\PublicException $e) {
             return "Fail" . $e->getMessage();
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             echo $e->getMessage()."\n";
         }
 
