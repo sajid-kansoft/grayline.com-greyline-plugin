@@ -37,7 +37,7 @@ class AdyenWebhookProcess
         try {
             if (!$merchantReference && !$pspReference) {
                 $publicError = "Adyen webhook notification error missing merchantReference {$merchantReference} or pspReference {$pspReference}";
-                throw new AdyenWebhookException($publicError);
+                throw new \AdyenWebhookException($publicError);
             }
             // we only want to store GLWW payments, not all Market Pay bookings.
             if (!$this->confirmPaymentAccount($tourcms_account_id, $merchantReference)) {
@@ -78,26 +78,60 @@ class AdyenWebhookProcess
             // );
 
             // $rows = $wpdb->get_results($query, ARRAY_A);
-            $sql = "INSERT INTO adyen_webhooks (logged, currency, total, eventCode, eventDate, merchantAccountCode, merchantReference, originalReference, pspReference, reason, success, paymentMethod, operations, additionalData) VALUES (:now, :currency, :total, :eventCode, :eventDate, :merchantAccountCode, :merchantReference, :originalReference, :pspReference, :reason, :success, :paymentMethod, :operations, :additionalData)";
-            $q = $conn->prepare($sql);
-            $details = [
-                ':now' => $now,
-                ':currency' => $currency,
-                ':total' => $total,
-                ':eventCode' => $eventCode,
-                ':eventDate' => $sql_datetime,
-                ':merchantAccountCode' => $merchantAccountCode,
-                ':merchantReference' => $merchantReference,
-                ':originalReference' => $originalReference,
-                ':pspReference' => $pspReference,
-                ':reason' => $reason,
-                ':success' => $success,
-                ':paymentMethod' => $paymentMethod,
-                ':operations' => $operations,
-                ':additionalData' => $additional_data_json,
-            ];
+            // $sql = "INSERT INTO adyen_webhooks (logged, currency, total, eventCode, eventDate, merchantAccountCode, merchantReference, originalReference, pspReference, reason, success, paymentMethod, operations, additionalData) VALUES (:now, :currency, :total, :eventCode, :eventDate, :merchantAccountCode, :merchantReference, :originalReference, :pspReference, :reason, :success, :paymentMethod, :operations, :additionalData)";
 
-            $result = $q->execute($details);
+            $query =  $wpdb->prepare(
+                
+                "INSERT INTO wp_adyen_webhooks (
+                    logged,
+                    currency,
+                    total,
+                    eventCode,
+                    eventDate,
+                    merchantAccountCode,
+                    merchantReference,
+                    originalReference,
+                    pspReference,
+                    reason,
+                    success,
+                    paymentMethod,
+                    operations,
+                    additionalData) VALUES (
+                    %s,
+                    %s,
+                    %s,
+                    %s,
+                    %s,
+                    %s,
+                    %s,
+                    %s,
+                    %s,
+                    %s,
+                    %s,
+                    %s,
+                    %s,
+                    %s)",
+               
+                array(
+                    $now,
+                    $currency,
+                    $total,
+                    $eventCode,
+                    $sql_datetime,
+                    $merchantAccountCode,
+                    $merchantReference,
+                    $originalReference,
+                    $pspReference,
+                    $reason,
+                    $success,
+                    $paymentMethod,
+                    $operations,
+                    $additional_data_json
+                )
+           );
+
+            $result = $wpdb->query($query);
+
             try {
                 sleep(5); // wait for db to be updated and booking to be marked as timeout
                 $pieces = explode('_', $merchantReference);
@@ -114,7 +148,7 @@ class AdyenWebhookProcess
             $result_string = json_encode($result, JSON_UNESCAPED_SLASHES);
             $publicError = "Adyen webhook notification error {query} $sql\n, {queryData} $data\n, {result} $result_string \n{error} ".$e->getMessage(
                 );
-            throw new AdyenWebhookException($publicError);
+            throw new \AdyenWebhookException($publicError);
         }
         // we must always accept notifications, even if they are duplicates (db won't store duplicates)
         if (!$result) {
@@ -174,12 +208,20 @@ class AdyenWebhookProcess
 
     protected function dbGetRow($merchantReference)
     {
+        global $wpdb;
+        
         // Query the DB to get our items
-        $sql = $conn->prepare("SELECT * FROM adyen_webhooks WHERE merchantReference = :merchantReference");
-        $details = array(':merchantReference' => $merchantReference);
-        $sql->execute($details);
+        $sql =  $wpdb->prepare(
+	            
+            "SELECT * FROM adyen_webhooks WHERE merchantReference = %s",
+            
+            array(
+                $merchantReference
+            )
+        );
 
-        $rows = $sql->fetchAll();
+        $rows = $wpdb->get_results($sql, ARRAY_A);        
+        
 
         if (is_array($rows) && isset($rows[0])) {
             $row = $rows[0];

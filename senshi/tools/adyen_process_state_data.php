@@ -1,4 +1,6 @@
 <?php
+defined('GRAYLINE_WORDPRESS_TOURCMS_PLUGIN_EXECUTE') or die("Access Denied.");
+
 header('Content-type:application/json;charset=utf-8');
 
 loadSenshiModal('dic');

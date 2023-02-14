@@ -401,9 +401,9 @@ class TourSingle extends MainController {
 		$price_brekdown = $args['price_brekdown'] ? $args['price_brekdown'] : null;
 		$pickup_point=$args['pickup_point'] ? $args['pickup_point'] : 0;
 		$cart_button=$args['cart_button'] ? $args['cart_button'] : 0;
-		$display_price=$args['display_price'] ? $args['display_price'] : 0;
-		$display_was_price=$args['display_was_price'] ? $args['display_was_price'] : 0;
-		$displayCurrency=$args['displayCurrency'] ? $args['displayCurrency'] : '';
+		$display_price=!empty($args['display_price']) ? $args['display_price'] : 0;
+		$display_was_price=!empty($args['display_was_price']) ? $args['display_was_price'] : 0;
+		$displayCurrency=!empty($args['displayCurrency']) ? $args['displayCurrency'] : '';
 
 		// check on special offer 
 		if ($was_price === $total_price) {

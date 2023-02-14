@@ -74,7 +74,7 @@ class TourcmsBookingProcess
                     $postVars,
                     JSON_UNESCAPED_SLASHES
                 );
-            throw new AdyenPaymentException($errorMsg, 'CRITICAL');
+            throw new \AdyenPaymentException($errorMsg, 'CRITICAL');
         }
         // we make payment with adyen card processing
         $payment_reference = "Adyen Card";
@@ -82,7 +82,7 @@ class TourcmsBookingProcess
         // do adyen payment, then process accordingly
         try {
             $booking = $this->tourcmsWrapper->show_booking($booking_id, $this->channel_id);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $this->logger->logBookingFlow($booking_id, $this->channel_id, "can't access show booking, trying again");
             error_log($e->getMessage());
             // try again
@@ -123,7 +123,7 @@ class TourcmsBookingProcess
             $higher_fee = $this->adyenBinLookup->higherFee($total, $currency, (string)$postVars['encryptedCardNumber']);
             $payment_method = $this->adyenBinLookup->getPaymentMethod();
         }
-        catch (Exception $e) {
+        catch (\Exception $e) {
             // we need to add this as a note onto the booking / financial data json
             // DO NOT end the booking process if we have trouble getting a cost estimate or trying to find out the card type!
             $this->fee_estimate_note = $e->getMessage();
@@ -141,12 +141,12 @@ class TourcmsBookingProcess
                 $alt_total,
                 $alt_currency
             );
-        } catch (AdyenPaymentException $e) {
+        } catch (\AdyenPaymentException $e) {
             $this->logger->logBookingFlow($booking_id, $this->channel_id, $e->getMessage());
             // we need to cancel these bookings so they're not left stranded in TourCMS=
             $this->tourcmsBookingFinalise->cancelBooking($booking_id, $e->getMessage());
             // still have to retain message, could be useful for end user
-            throw new PublicException("Split calculation error, please try again or try a new product selection.");
+            throw new \PublicException("Split calculation error, please try again or try a new product selection.");
         }
         $split = $this->adyenSplit->getSplitArray();
         // let's update TourCMS financial data as we might lose this on a 3ds redirect
@@ -170,18 +170,18 @@ class TourcmsBookingProcess
             // Payment could now be authorised, failed, or need some 3DS processing
             return $this->switchResultCode($result, $booking_id);
 
-        } catch (PublicException $e) {
+        } catch (\PublicException $e) {
             $this->logger->logBookingFlow($booking_id, $this->channel_id, $e->getMessage());
             // we need to cancel these bookings so they're not left stranded in TourCMS=
             $this->tourcmsBookingFinalise->cancelBooking($booking_id, $e->getMessage());
             // still have to retain message, could be useful for end user
-            throw new PublicException($e->getMessage());
-        } catch (AdyenPaymentException $e) {
+            throw new \PublicException($e->getMessage());
+        } catch (\AdyenPaymentException $e) {
             $this->logger->logBookingFlow($booking_id, $this->channel_id, $e->getMessage());
             // we need to cancel these bookings so they're not left stranded in TourCMS
             $this->tourcmsBookingFinalise->paymentCancel(null, $booking_id);
             // still have to retain message, could be useful for end user
-            throw new PublicException($e->getMessage());
+            throw new \PublicException($e->getMessage());
         }
 
 
@@ -203,7 +203,7 @@ class TourcmsBookingProcess
         $publicError = "Oh snap! There was a timeout problem with our payment gateway, please check your email to verify the status of this booking (ID $booking_id). Note: you may have to wait a couple of minutes. If the booking failed, please try again, if it is confirmed, enjoy your trip!";
         $string = $publicError;
         $this->logger->logBookingFlow($booking_id, $this->channel_id, $string);
-        throw new PublicException($publicError);
+        throw new \PublicException($publicError);
 
     }
 
@@ -227,7 +227,7 @@ class TourcmsBookingProcess
             $publicError = "Cannot process 3ds on this booking (ID: $booking_id), no return data from bank";
             $string = "CRITICAL ERROR - 3DS1 processing, $publicError";
             $this->logger->logBookingFlow($booking_id, $this->channel_id, $string);
-            throw new AdyenPaymentException($publicError);
+            throw new \AdyenPaymentException($publicError);
         }
 
         if ($cart_id) {
@@ -252,14 +252,14 @@ class TourcmsBookingProcess
 
             // Payment could now be authorised, failed, refused, or pending
             return $this->switchResultCode($result, $booking_id);
-        } catch (PublicException $e) {
+        } catch (\PublicException $e) {
             $this->logger->logBookingFlow($booking_id, $this->channel_id, $e->getMessage());
             // we need to cancel these bookings so they're not left stranded in TourCMS
             $this->tourcmsBookingFinalise->cancelBooking($booking_id, $e->getMessage());
             // still have to retain message, could be useful for end user
-            throw new PublicException($e->getMessage());
+            throw new \PublicException($e->getMessage());
         }
-        catch (AdyenWebhookException $e) {
+        catch (\AdyenWebhookException $e) {
             $this->processTimeout($booking_id, $e->getMessage());
         }
 
@@ -326,7 +326,7 @@ class TourcmsBookingProcess
             $publicError = "Cannot process state data on this booking, no booking id available";
             $string = "CRITICAL ERROR - STATE DATA processing, $publicError";
             $this->logger->logBookingFlow($booking_id, $this->channel_id, $string);
-            throw new AdyenPaymentException($publicError);
+            throw new \AdyenPaymentException($publicError);
         }
         // Store log
         $string = "STATE DATA processing begins ".'POST: '.json_encode($post_vars, JSON_UNESCAPED_SLASHES);
@@ -344,13 +344,13 @@ class TourcmsBookingProcess
 
             // Payment could now be authorised, failed, refused, or pending, or even more 3ds2 processing
             return $this->switchResultCode($result, $booking_id);
-        } catch (PublicException $e) {
+        } catch (\PublicException $e) {
             $this->logger->logBookingFlow($booking_id, $this->channel_id, $e->getMessage());
             // we need to cancel these bookings so they're not left stranded in TourCMS
             $this->tourcmsBookingFinalise->cancelBooking($booking_id, $e->getMessage());
             // still have to retain message, could be useful for end user
-            throw new PublicException($e->getMessage());
-        } catch (AdyenWebhookException $e) {
+            throw new \PublicException($e->getMessage());
+        } catch (\AdyenWebhookException $e) {
             $this->processTimeout($booking_id, $e->getMessage());
         }
     }

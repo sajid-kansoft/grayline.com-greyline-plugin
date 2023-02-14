@@ -21,7 +21,7 @@ class Cart
             // problem, no cart id session
             $errorMsg = "Cannot find shopping cart";
             $redirect_url = DIR_REL."/cart?status=error&action=cart_not_found";
-            throw new RedirectException($errorMsg, $redirect_url);
+            throw new \RedirectException($errorMsg, $redirect_url);
         }
 
         return $this->cart_id;
@@ -76,7 +76,7 @@ class Cart
                     "DELETE FROM wp_tcmsc_bookings WHERE cart_id = %s AND channel_id = %s AND booking_id = %s",
                     
                     array(
-                        $cart_id,
+                        $this->cart_id,
                         $channel_id,
                         $booking_id
                     )
@@ -236,7 +236,7 @@ class Cart
             )
         );
 
-        $items = $wpdb->get_results($query, ARRAY_A);
+        $items = $wpdb->get_results($sql, ARRAY_A);
 
         $item = isset($items[0]) ? $items[0] : null;
 

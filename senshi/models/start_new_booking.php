@@ -107,7 +107,7 @@ class StartNewBooking
                 $this->channel_id,
                 "DEBUG: Customer ID for $email returned $customer_id"
             );
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $errorMsg = $e->getMessage();
             $this->logger->logBookingFlow(
                 self::DEBUG_ID,
@@ -137,7 +137,7 @@ class StartNewBooking
             try {
                 $this->cart->processTemporaryBooking($this->channel_id, $this->tourcmsWrapper);
             }
-            catch (TourcmsException $e) {
+            catch (\TourcmsException $e) {
                 $errorMsg = "Process Temporary Booking - Error: CART ID {$this->cart_id}, Message: ".$e->getMessage();
                 $this->logger->logBookingFlow(self::DEBUG_ID, $this->channel_id, $errorMsg);
                 // continue on, we might just not be able to delete a temporary booking, not a show stopper
@@ -147,7 +147,7 @@ class StartNewBooking
             if (!$items || is_array($items) && count($items) == 0) {
                 $errorMsg = "cannot find any cart items for cart_id {$this->cart_id}";
                 $redirect_url = DIR_REL."/cart?status=error&action=checkout_payment";
-                throw new RedirectException($errorMsg, $redirect_url);
+                throw new \RedirectException($errorMsg, $redirect_url);
             }
             $this->items = $items;
 
@@ -181,7 +181,7 @@ class StartNewBooking
                 $errorMsg = "Start New Booking Error - unavailable items ({$num_unavailable}) cart_id({$this->cart_id})";
                 $redirect_url = wp_redirect(home_url("/checkout_check?channel_id=$this->channel_id&from=checkout_payment&check=all"));
                 // non critical
-                throw new RedirectException($errorMsg, $redirect_url);
+                throw new \RedirectException($errorMsg, $redirect_url);
             }
 
             $this->sale_currency = (string)$this->resultXml->booking->sale_currency;
@@ -195,6 +195,7 @@ class StartNewBooking
             );
             $altA = $this->postVars['alt_amount'];
             $this->alt_amount_hash = $this->postVars['a_a_h_2'];
+         
             if ($altC && $altC !== 'USD') {
                 // Alt amount hash could contain a slightly different value due to subtotal / total non match on FEX conversion
                 try {
@@ -208,6 +209,7 @@ class StartNewBooking
                         $this->channel_id,
                         "FEX Transaction. Alt_A ($altA), altTotal $altTotal, a_a_h_2 {$this->alt_amount_hash}, altA hashed for comparison $alt_hash"
                     );
+
                     // if the alt total post is the same as the alt total calculated, e.g. single item checkout, just proceed
                     if ($altTotal === $altA) {
                         $this->logger->logBookingFlow(
@@ -218,7 +220,7 @@ class StartNewBooking
                     } else {
                         if ($this->alt_amount_hash !== $alt_hash) {
                             $message = "Hash problem, posted hash value ($this->alt_amount_hash) does not match hash ($alt_hash) of alt amount ($altA). Fatal error, stop transaction";
-                            throw new PaymentException($message, 'CRITICAL');
+                            throw new \PaymentException($message, 'CRITICAL');
                         }
                         // assume we always get an alt amount hash on all fex transactions, allow a 5% margin of error
                         $ceiling = 1.05 * $altTotal;
@@ -232,14 +234,14 @@ class StartNewBooking
                             );
                         } else {
                             $message = "Alt Amount from POST ($altA) is NOT within range. Floor ($floor), Alt Total ($altTotal), Ceiling $ceiling. DO NOT Proceed";
-                            throw new PaymentException($message, 'CRITICAL');
+                            throw new \PaymentException($message, 'CRITICAL');
                         }
                     }
-                } catch (PaymentException $e) {
+                } catch (\PaymentException $e) {
 
                     // we continue on anyway, but log this
                     $this->logger->logBookingFlow($booking_id, $this->channel_id, $e->getMessage());
-                    throw new PublicException(
+                    throw new \PublicException(
                         "Sorry there was a problem with the foreign exchange values. Please refresh & try again"
                     );
                 }
@@ -275,7 +277,7 @@ class StartNewBooking
                 if ($onLoad) {
                     $this->tourcmsWrapper->delete_booking($this->booking_id, $this->channel_id);
                 }
-            } catch (TourcmsException $e) {
+            } catch (\TourcmsException $e) {
                 // if we have an INVALID BOOKING ID error when trying to delete, just ignore and continue on, don't redirect
                 return true;
             }
@@ -286,7 +288,7 @@ class StartNewBooking
                 $postConversion = "{$this->sale_currency} {$this->actual_amount_due_now} to {$altC} {$altA}";
                 $actualConversion = "{$this->sale_currency} {$this->actual_amount_due_now} to {$this->alt_currency} {$this->alt_amount}";
                 $errorMsg = "Currency Conversion Error Booking $booking_id. POST $postConversion. ACTUAL $actualConversion";
-                throw new AdyenPaymentException($errorMsg, 'CRITICAL');
+                throw new \AdyenPaymentException($errorMsg, 'CRITICAL');
             }
 
             // we want to catch this redirect exception in calling code, so that we can redirect via AJAX or PHP accordingly
@@ -296,15 +298,15 @@ class StartNewBooking
 //            header("Location: ". $e->getRedirectUrl());
 //            exit;
 //        }
-        } catch (AdyenPaymentException $e) {
+        } catch (\AdyenPaymentException $e) {
             return true;
-        } catch (TourcmsException $e) {
+        } catch (\TourcmsException $e) {
             $errorMsg = "Start New Booking - Error: CART ID {$this->cart_id}, Message: ".$e->getMessage();
             $booking_id = $this->booking_id ? $this->booking_id : self::DEBUG_ID;
             $this->logger->logBookingFlow($booking_id, $this->channel_id, $e->getMessage());
             // could be the fact that the booking key has expired, num available no longer valid etc
             $redirect_url = wp_redirect(home_url("/checkout_check?channel_id=$this->channel_id&from=checkout_payment&check=all"));
-            throw new RedirectException($errorMsg, $redirect_url);
+            throw new \RedirectException($errorMsg, $redirect_url);
         }
 
     }

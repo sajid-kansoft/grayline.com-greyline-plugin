@@ -83,5 +83,8 @@ class MainController
 
 		return $result;
 	}
-
+    
+    public function set($key, $value) {
+        $this->{$key} = $value;
+    }
 }

@@ -140,6 +140,7 @@ class Checkout extends MainController
         $this->channel_info = json_decode($json_channels);
 
         $promo_code = isset($_POST['promo_code']) ? $_POST['promo_code'] : '';
+        
         if (!empty($promo_code)) {
             //FB::log("calling promo code ajax function");
             $this->promoCode();
@@ -316,7 +317,7 @@ class Checkout extends MainController
         // print_r($cart_countall);die;
         $this->num_items = count($cart_countall);
 
-        palisis_set_cookie("numcartitems", $this->num_items);
+       // palisis_set_cookie("numcartitems", $this->num_items);
 
 //        foreach ($cart_countall as $item) {
 //            if (!in_array($item["channel_id"], $this->channel_ids)) {
@@ -342,7 +343,6 @@ class Checkout extends MainController
         $cart_items = $wpdb->get_results($query, ARRAY_A);
 
         $this->items = $cart_items;
-
         if (count($cart_items) == 0) {
             header("Location: ".DIR_REL."/cart?status=error&action=checkout");
             exit();
@@ -522,14 +522,14 @@ class Checkout extends MainController
                 }
             }
         }
-        catch (RedirectException $e) {
+        catch (\RedirectException $e) {
             palisis_set_cookie("tcms_ag_bk", '', time() - 3600);
             palisis_set_cookie("tcms_bk_$channel_id", '', time() - 3600);
             palisis_set_cookie("tcms_bk_{$channel_id}_expires", '', time() - 3600);
             header("Location: ".DIR_REL."/checkout_key");
 
         }
-        catch (Exception $e) {
+        catch (\Exception $e) {
             header("Location: ".DIR_REL. "/?status=error&action=checkout&problem=unable+to+create_booking&err=".urlencode($e->getMessage()));
         }
 
@@ -990,10 +990,10 @@ class Checkout extends MainController
 
     public function promoCode()
     {
+        global $wpdb;
 
         include(GRAYLINE_LICENSEE_WORDPRESS_TOURCMS_PLUGIN_PATH."libraries/3rdparty/tourcms/config.php");
-
-        // if it is an agent logged in, return false
+                // if it is an agent logged in, return false
         $this->isAgent();
         // New system, non GLWW agents can't use promo codes
         if ($this->is_agent) {
@@ -1005,23 +1005,16 @@ class Checkout extends MainController
                 exit();
             }
         }
-        Loader::model("cart_item", "senshi");
-
+        
+        loadSenshiModal("cart_item");
+        
         $tourcms = new TourCMS($this->marketplace_account_id, $this->api_private_key, "simplexml");
-
-        $dbtype = $this->dbtype;
-        $dbhost = $this->dbhost;
-        $dbport = $this->dbport;
-        $dbname = $this->dbname;
-        $dbuser = $this->dbuser;
-        $dbpass = $this->dbpass;
-
+        
         $promo_code = isset($_POST["promo_code"]) ? $_POST["promo_code"] : "";
         $cart_id = isset($_POST["cart_id"]) ? $_POST["cart_id"] : "";
         $channel_id = isset($_POST["channel_id"]) ? $_POST["channel_id"] : "";
         $is_agent = isset($_POST["agent"]) ? (int)$_POST["agent"] : "0";
         $b_k = isset($_POST["b_k"]) ? $_POST["b_k"] : "";
-
 
         $bkg_currency = isset($_POST["bkg_currency"]) ? $_POST["bkg_currency"] : "";
         $sel_currency = isset($_POST["sel_currency"]) ? $_POST["sel_currency"] : "";
@@ -1037,15 +1030,17 @@ class Checkout extends MainController
         $result["requires_membership"] = 0;
 
         if ($channel_id == "" || $cart_id == "" || $b_k == "" || $bkg_currency == "" || $sel_currency == "") {
+            
             $result["error"] = "NOTOK";
             $result["message"] = "Sorry, there has been a problem";
         } else {
-
+            
             $promo_ok = false;
 
             if ($promo_code == "") {
                 $promo_ok = true;
             } else {
+                
                 $check_promo = $tourcms->show_promo($promo_code, $channel_id);
 
                 // Try again, API comms error perhaps
@@ -1089,7 +1084,7 @@ class Checkout extends MainController
 
                 $query =  $wpdb->prepare(
                     
-                     "SELECT * FROM tcmsc_bookings WHERE cart_id = :cart_id AND channel_id = :channel_id AND status = 'TEMP'",
+                     "SELECT * FROM tcmsc_bookings WHERE cart_id = %s AND channel_id = %s AND status = 'TEMP'",
                     
                     array(
                         $cart_id,
@@ -1131,7 +1126,7 @@ class Checkout extends MainController
 
                 $query =  $wpdb->prepare(
                     
-                     "SELECT * from wp_tcmsc_cartitems where cart_id = :cart_id AND channel_id = :channel_id",
+                     "SELECT * from wp_tcmsc_cartitems where cart_id = %s AND channel_id = %s",
                     
                     array(
                         $cart_id,
@@ -1150,7 +1145,7 @@ class Checkout extends MainController
                 }
 
                 // Start building the booking XML
-                $booking = new SimpleXMLElement('<booking />');
+                $booking = new \SimpleXMLElement('<booking />');
 
                 // Append the total customers, we'll add their details on below
                 $booking->addChild('total_customers', '1');
@@ -1203,8 +1198,6 @@ class Checkout extends MainController
 
                 if ($new_booking->error == "OK") {
 
-                    $sqlnb = "INSERT INTO tcmsc_bookings (cart_id, channel_id, booking_id, status) VALUES (:cart_id, :channel_id, :booking_id, 'TEMP')";
-
                     $qnb =  $wpdb->prepare(
                         
                          "INSERT INTO tcmsc_bookings (cart_id, channel_id, booking_id, status) VALUES (%s, %s, %s, 'TEMP')",
@@ -1239,9 +1232,6 @@ class Checkout extends MainController
                               } else {
                                   $promo_value .= " $promo_value_currency";
                               }
-
-
-
 
 //                              // Start fixing two things:
 //                              // 1) Site is taking sales_revenue, should take sales_revenue_due_now
@@ -1349,6 +1339,4 @@ class Checkout extends MainController
         echo json_encode($result);
         exit;
     }
-
-
 }
