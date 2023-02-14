@@ -121,6 +121,7 @@ class CartController extends MainController
                 //print $row_chan;
 
                 wp_redirect(home_url($this->checkout_url."?channel_id=".$row_chan));
+                exit();
 //				foreach ($rows as $row) {
 //				
 //					$row_chan = (int)$row["channel_id"];
@@ -339,7 +340,7 @@ class CartController extends MainController
 	            			 ) 
 	        		);
 
-	        		$wpdb->query($query);
+	        		$wpdb->query($del_sql);
                 }
             }
         }
