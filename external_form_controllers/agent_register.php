@@ -8,7 +8,7 @@ class AgentRegisterExternalFormBlockController
     public $returnUrl = "";
     public function on_start()
     {
-        $this->returnUrl = home_url('/agents/agent-register/');
+        $this->returnUrl = home_url('/agents/agent-registration/');
     }
 
     // need to be check
