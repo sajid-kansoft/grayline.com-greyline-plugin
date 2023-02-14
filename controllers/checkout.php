@@ -924,7 +924,7 @@ class Checkout extends MainController
 
     public function tour_image_secure($url)
     {
-        $url = str_replace("http://", "https://", $url, $count = 1);
+        $url = str_replace("http://", "https://", $url,  1);
         $urlparts = explode('.', $url);
 
         // check for presence of 'r' segment
