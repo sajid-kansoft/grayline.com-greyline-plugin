@@ -28,7 +28,7 @@ class Dic
 
             return $cacheTagible;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -44,7 +44,7 @@ class Dic
 
             return $tagibleProduct;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -72,7 +72,7 @@ class Dic
             }
             return $object;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -86,7 +86,7 @@ class Dic
             }
             return $object;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -100,7 +100,7 @@ class Dic
             }
             return $object;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -114,7 +114,7 @@ class Dic
             }
             return $object;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -128,7 +128,7 @@ class Dic
             }
             return $object;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -142,7 +142,7 @@ class Dic
             }
             return $object;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -156,7 +156,7 @@ class Dic
             }
             return $object;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -173,7 +173,7 @@ class Dic
             }
             return $object;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -187,7 +187,7 @@ class Dic
             }
             return $object;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -203,7 +203,7 @@ class Dic
             }
             return $object;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -217,7 +217,7 @@ class Dic
             }
             return $object;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -231,7 +231,7 @@ class Dic
             }
             return $object;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -246,7 +246,7 @@ class Dic
             }
             return $object;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -260,7 +260,7 @@ class Dic
             }
             return $object;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -275,7 +275,7 @@ class Dic
             }
             return $object;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -289,7 +289,7 @@ class Dic
             }
             return $object;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -303,7 +303,7 @@ class Dic
             }
             return $object;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -317,7 +317,7 @@ class Dic
             }
             return $object;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -331,7 +331,7 @@ class Dic
             }
             return $object;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -345,7 +345,7 @@ class Dic
             }
             return $object;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -360,7 +360,7 @@ class Dic
             }
             return $object;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -374,7 +374,7 @@ class Dic
             }
             return $object;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -388,7 +388,7 @@ class Dic
             }
             return $object;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -410,7 +410,7 @@ class Dic
             }
             return $object;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -425,7 +425,7 @@ class Dic
             }
             return $object;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -439,7 +439,7 @@ class Dic
             }
             return $object;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 
@@ -453,7 +453,7 @@ class Dic
             }
             return $object;
         } catch (InternalException $e) {
-            throw new PublicException($e);
+            throw new \PublicException($e);
         }
     }
 }

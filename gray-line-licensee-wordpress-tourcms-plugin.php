@@ -813,6 +813,7 @@ function channel_details() {
 
 	$grayLineTourCMSMainControllers = new GrayLineTourCMSControllers\MainController;
 	$results = $grayLineTourCMSMainControllers->call_tourcms_api("show_channel");
+
 	set_data_in_transient($channel_id, $results);
 
 	$api_info = get_data_from_transient($channel_id); 
@@ -1880,7 +1881,7 @@ add_action( 'rest_api_init', function () {
         '/get_currency_rates',
         '/get_currency',
         '/widget_ticket',
-        //'/get_deals_dates'
+        '/remove_cart'
      );
   
   	$is_admin = current_user_can('manage_options');  // all user they have mange option will get 
@@ -2031,7 +2032,7 @@ add_action( 'rest_api_init', function () {
 		'permission_callback' => '__return_true',
 	) );
 	register_rest_route( $tourcms_plugin_namespace, '/adyen_process_state_data', array(
-		'methods' => 'GET',
+		'methods' => 'POST',
 		'callback' => 'grayline_tourcms_adyen_process_state_data',
 		'permission_callback' => '__return_true',
 	) );
@@ -2055,11 +2056,11 @@ add_action( 'rest_api_init', function () {
 		'callback' => 'grayline_tourcms_widget_ticket',
 		'permission_callback' => '__return_true',
 	) );
-	/*register_rest_route( $tourcms_plugin_namespace, '/get_deals_dates', array(
-		'methods' => 'GET',
-		'callback' => 'grayline_tourcms_get_deals_dates',
+	register_rest_route( $tourcms_plugin_namespace, '/remove_cart', array(
+		'methods' => 'POST',
+		'callback' => 'grayline_tourcms_remove_cart',
 		'permission_callback' => '__return_true',
-	) );*/
+	) );
 
 } );
 
@@ -4293,6 +4294,11 @@ function grayline_tourcms_widget_ticket($request) {
 	$tourSingle = new GrayLineTourCMSControllers\TourSingle();
 	return $tourSingle->get_widget_ticket($query_params);
 }
+
+function grayline_tourcms_remove_cart($request) {
+	$cartController = new GrayLineTourCMSControllers\CartController();
+	$cartController->remove();
+}
 // Feefo product reviews end
 
 /*function grayline_tourcms_get_deals_dates($requestprint_r();exit;) {
@@ -4447,7 +4453,6 @@ function get_page_url($name, $type) {
         return $result;
 	   }
     }
-
 function city_country_page_breadcrumbs($post_id, $post_name) {
 	$breadcrumbs_details = array();
 	// home

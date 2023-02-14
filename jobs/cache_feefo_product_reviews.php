@@ -42,7 +42,7 @@ class CacheFeefoProductReviews
 
 					$url = $feefo_url . "?merchant_identifier=".$merchant_identifier."&rating=".$product_review_rating."&tags=productbrand:".$productbrand."&page_size=3&page=1";
 			        
-					$reviews = $this->get_product_reviews($url); 
+					$reviews = $this->get_product_reviews($url);
 					$reviews_in_arr = (!empty($reviews))? json_decode($reviews, true) : array();
 					if(!empty($reviews_in_arr['reviews'])) {
 						$transient_key = "feefo_product_reviews_".$productbrand;
@@ -60,7 +60,7 @@ class CacheFeefoProductReviews
 			}
 			
 
-		} catch (Exception $e) {
+		} catch (\Exception $e) {
 			error_log("Feefo Product Reviews Cron Error: ".$e->getMessage());
         }
 	}

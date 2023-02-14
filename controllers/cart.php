@@ -94,9 +94,11 @@ class CartController extends MainController
     public function view()
     {
 
+        global $wpdb;
+        
         // Check if we have a cart, if so, load the items
         if (isset($_SESSION["tcmscartid"])) {
-
+            
             $cart_id = $_SESSION["tcmscartid"];
 
             /* Load Tours */
@@ -104,11 +106,10 @@ class CartController extends MainController
 
 	        $query =  $wpdb->prepare(
 	            
-	            "SELECT * from wp_tcmsc_cartitems where cart_id = :cart_id ORDER BY id DESC",
+	            "SELECT * from wp_tcmsc_cartitems where cart_id = %s ORDER BY id DESC",
 	            
 	            array(
-	                $cart_id,
-	                $channel_id
+	                $cart_id
 	            )
 	        );
 
@@ -118,7 +119,7 @@ class CartController extends MainController
 
                 $row_chan = (int)$rows[0]["channel_id"];
                 //print $row_chan;
-                // header("Location: ".$this->checkout_url."?channel_id=".$row_chan);
+
                 wp_redirect(home_url($this->checkout_url."?channel_id=".$row_chan));
 //				foreach ($rows as $row) {
 //				
@@ -187,6 +188,7 @@ class CartController extends MainController
             $this->last_location = $_SESSION["last_location"];
         }
 
+        wp_redirect(home_url('/cart'));
 
         // // add scripts to page
         // $v = View::getInstance();
@@ -212,7 +214,7 @@ class CartController extends MainController
         	wp_redirect(home_url($this->checkout_url."?channel_id=$this->channel_id&status=error&action=add&problem=nofile"));
         } 
         $component_info = simplexml_load_file($component_file);
-
+        
         $tour_id = (int)$component_info->tour_id;
         $channel_id = (int)$component_info->channel_id;
 
@@ -254,7 +256,7 @@ class CartController extends MainController
                 $sub_type = (int)$b;
             }
         }
-
+        
         // Pickup points
         if (isset($component_info->pickup_points->pickup) || !empty($component_info->pickup_on_request_key)) {
             $pickup_choice = isset($_POST["final_pickup_choice"]) ? $_POST["final_pickup_choice"] : "";
@@ -512,9 +514,10 @@ class CartController extends MainController
 
     public function remove()
     {
+        global $wpdb;
 
         $item_id = isset($_POST["item_id"]) ? (int)$_POST["item_id"] : 0;
-
+        
         $cart_id = isset($_SESSION["tcmscartid"]) ? (int)$_SESSION["tcmscartid"] : 0;
 
         if ($item_id > 0 && $cart_id > 0) {
@@ -549,13 +552,22 @@ class CartController extends MainController
             $result = $wpdb->query($query, ARRAY_A);
 
             if ($result > 0) {
-            	wp_redirect(home_url('cart/'));
+            	// wp_redirect(home_url('cart/'));
+                $this->on_start();
+                $this->view();
+                exit();
             } else {
-            	wp_redirect(home_url('cart/'));
+            	// wp_redirect(home_url('cart/'));
+                $this->on_start();
+            	$this->view();
+                exit();
             }
 
         } else {
-        	wp_redirect(home_url('cart/'));
+        	// wp_redirect(home_url('cart/'));
+            $this->on_start();
+            $this->view();
+            exit();
         }
     }
 

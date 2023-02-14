@@ -69,7 +69,7 @@ class FeefoApi
         try { 
             $this->curlData($data);
         }
-        catch (FeefoException $e) {
+        catch (\FeefoException $e) {
             error_log($e->getMessage());
             // don't block the flow of the script, not fatal
         }
@@ -83,17 +83,17 @@ class FeefoApi
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_CAINFO, "C:/wamp64/www/ca-bundle.crt");
+        // curl_setopt($ch, CURLOPT_CAINFO, "D:/wamp64/www/ca-bundle.crt.pem");
 
         $reply=curl_exec($ch);
         $status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);   //get status code
         $error = curl_error($ch);
         curl_close($ch);  
         if ($error) { 
-            throw new FeefoException("Curl Feefo Error: $error, Status Code: $status_code, Data $data");
+            throw new \FeefoException("Curl Feefo Error: $error, Status Code: $status_code, Data $data");
         }
         if (!$reply) { 
-            throw new FeefoException("Curl Feefo No Reply: $error, Status Code: $status_code, Data $data");
+            throw new \FeefoException("Curl Feefo No Reply: $error, Status Code: $status_code, Data $data");
         }
         //echo "The response received was: $reply";
         return true;
