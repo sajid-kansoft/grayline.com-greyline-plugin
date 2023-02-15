@@ -272,7 +272,7 @@ class CartController extends MainController
                 }
 
                 $pickup_offset = isset($_POST["pickup_points"]) ? (int)$_POST["pickup_points"] : "";
-
+                
                 // Check if there's a pickup
                 if ($pickup_key != "") {
 
@@ -285,7 +285,7 @@ class CartController extends MainController
                     }
 
                     $pickups = $component_info->pickup_points->xpath("//pickup[pickup_key='".$pickup_key."']");
-
+                    
                     if (count($pickups) > 0) {
                         $pickup = $pickups[0];
 
@@ -507,6 +507,7 @@ class CartController extends MainController
             // Redirect to the "View cart" page
             
             wp_redirect(home_url($this->checkout_url."?channel_id=$channel_id&status=ok&action=add"));
+            exit();
         } else { 
         	wp_redirect(home_url($this->checkout_url."?channel_id=$channel_id&status=error&action=add&problem=insert"));
         }

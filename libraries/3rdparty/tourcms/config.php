@@ -95,10 +95,10 @@ if ($production) {
 
         define('MAIL_DEBUG', false); // use iona@palisis.com sendgrid mail account and debug messages
     }
-    if (!defined('ENV')) {
-        define('ENV', 'test');
-    }
+
 }
+
+define('DIR_REL', get_home_url());
 
 if (!defined('PRODUCTION')) {
     define('PRODUCTION', $production);

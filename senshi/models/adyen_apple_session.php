@@ -15,11 +15,11 @@ class AdyenAppleSession
     protected $initiativeContext;
     protected $certificateKey;
     protected $certificateKeyPath;
-    const SANDBOX_CERTIFICATE_KEY = '/packages/senshi/assets/keys/sandbox/ApplePayPalisisAGTest.key.pem';
-    const SANDBOX_CERTIFICATE_CERT = '/packages/senshi/assets/keys/sandbox/ApplePayPalisisAGTest.crt.pem';
+    const SANDBOX_CERTIFICATE_KEY = 'senshi/assets/keys/sandbox/ApplePayPalisisAGTest.key.pem';
+    const SANDBOX_CERTIFICATE_CERT = 'senshi/assets/keys/sandbox/ApplePayPalisisAGTest.crt.pem';
     protected $pass_sandbox = "ZNztNwPYQba3sLHzwViUqxnZ***";
-    const PRODUCTION_CERTIFICATE_KEY = '/packages/senshi/assets/keys/production/ApplePayPalisisAGLive.key.pem'; ///your/path/to/applepay_includes/ApplePay.key.pem
-    const PRODUCTION_CERTIFICATE_CERT = '/packages/senshi/assets/keys/production/ApplePayPalisisAGLive.crt.pem';  // /your/path/to/applepay_includes/ApplePay.crt.pem
+    const PRODUCTION_CERTIFICATE_KEY = 'senshi/assets/keys/production/ApplePayPalisisAGLive.key.pem'; ///your/path/to/applepay_includes/ApplePay.key.pem
+    const PRODUCTION_CERTIFICATE_CERT = 'senshi/assets/keys/production/ApplePayPalisisAGLive.crt.pem';  // /your/path/to/applepay_includes/ApplePay.crt.pem
     // This is the password you were asked to create in terminal when you extracted ApplePay.key.pem
     protected $pass = "eyelids947!impracticableness";
 
@@ -54,15 +54,16 @@ class AdyenAppleSession
     protected function curlJson($url, $jsonPost)
     {
         if ($this->live) {
-            $cert = $_SERVER['DOCUMENT_ROOT'].self::PRODUCTION_CERTIFICATE_CERT;
-            $key = $_SERVER['DOCUMENT_ROOT'].self::PRODUCTION_CERTIFICATE_KEY;
+
+            $cert = GRAYLINE_LICENSEE_WORDPRESS_TOURCMS_PLUGIN_PATH.self::PRODUCTION_CERTIFICATE_CERT;
+            $key = GRAYLINE_LICENSEE_WORDPRESS_TOURCMS_PLUGIN_PATH.self::PRODUCTION_CERTIFICATE_KEY;
             $pass = $this->pass;
         } else {
-            $cert = $_SERVER['DOCUMENT_ROOT'].self::SANDBOX_CERTIFICATE_CERT;
-            $key = $_SERVER['DOCUMENT_ROOT'].self::SANDBOX_CERTIFICATE_KEY;
+            $cert = GRAYLINE_LICENSEE_WORDPRESS_TOURCMS_PLUGIN_PATH.self::SANDBOX_CERTIFICATE_CERT;
+            $key = GRAYLINE_LICENSEE_WORDPRESS_TOURCMS_PLUGIN_PATH.self::SANDBOX_CERTIFICATE_KEY;
             $pass = $this->pass_sandbox;
         }
-
+        
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_SSLCERT, $cert);
