@@ -404,6 +404,7 @@ class TourSingle extends MainController {
 		$display_price=!empty($args['display_price']) ? $args['display_price'] : 0;
 		$display_was_price=!empty($args['display_was_price']) ? $args['display_was_price'] : 0;
 		$displayCurrency=!empty($args['displayCurrency']) ? $args['displayCurrency'] : '';
+		$cancel=!empty($args['cancel']) ? $args['cancel'] : 0;
 
 		// check on special offer 
 		if ($was_price === $total_price) {
@@ -428,6 +429,8 @@ class TourSingle extends MainController {
 		  <input type="hidden" name="add_to_cart_json" id="add_to_cart_json" value=""/>
 
 		  <input type="hidden" name="add_to_cart" value="1">
+		  <input type="hidden" name="cancel" value="<?php echo $cancel; ?>">
+		  <input type="hidden" name="badges" value="<?php echo $badge_code; ?>">
 		  
 		  <div class="border-top <?php echo @$bg_class ?> border-primary border-4">
 
