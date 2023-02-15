@@ -389,6 +389,12 @@ class TourSingle extends MainController {
 		$badge_code =  $args['badge_code'] ? strtolower($args['badge_code']) : false;
 		$badge_name =  $args['badge_name'] ? $args['badge_name'] : false;
 		$date = $args['date'] ? $args['date'] : '';
+
+		if($date != '') {
+			$date = new DateTime($date);
+			$date = $date->format('D M j, Y');
+		}
+
 		$total_price =  $args['total_price'] ? $args['total_price'] : false;
 		$offer =  $args['offer'] ? $args['offer'] : false;
 		$offer_note =  $args['offer_note'] ? $args['offer_note'] : 'Special Offer';
