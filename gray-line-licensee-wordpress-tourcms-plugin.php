@@ -11,6 +11,9 @@ Text Domain: gray-line-licensee-wordpress-tourcms-plugin
 Domain Path: /languages/
 */
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING & ~E_DEPRECATED);
 
 define('GRAYLINE_WORDPRESS_TOURCMS_PLUGIN_EXECUTE', TRUE);
 
