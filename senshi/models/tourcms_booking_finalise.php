@@ -92,7 +92,7 @@ class TourcmsBookingFinalise
     public function provisionalBooking(int $booking_id, $reference, $currency, $note)
     {
         try {
-            $xml = new SimpleXMLElement('<payment />');
+            $xml = new \SimpleXMLElement('<payment />');
 
             $xml->addChild('booking_id', $booking_id);
             $xml->addChild('payment_value', 0);
@@ -111,7 +111,7 @@ class TourcmsBookingFinalise
             // Store log of response to create payment
             $string = "Response to Create Payment XML";
             $this->logger->logBookingFlow($booking_id, $this->channel_id, $string, $result);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $string = "CRITICAL: cannot create_payment in TourCMS ".$e->getMessage();
             $this->logger->logBookingFlow($booking_id, $this->channel_id, $string);
             // throw this back up the chain
@@ -147,7 +147,7 @@ class TourcmsBookingFinalise
 
             return true;
 
-        } catch (TourcmsException $e) {
+        } catch (\TourcmsException $e) {
             // throw this back up the chain
             $publicError = "Sorry we are having difficulty committing this booking, please try again";
             throw new \PublicException($publicError);
@@ -172,7 +172,7 @@ class TourcmsBookingFinalise
                     "Adyen Webhook Async Process Confirmed Timeout booking: $is_timeout"
                 );
                 $booking = $this->tourcmsWrapper->show_booking($booking_id, $this->channel_id);
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 $this->logger->logBookingFlow(
                     $booking_id,
                     $this->channel_id,
@@ -207,7 +207,7 @@ class TourcmsBookingFinalise
                         }
                     }
                 }
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 $string = "ASYNC BOOKING PROCESS ERROR: ".$e->getMessage();
                 $this->logger->logBookingFlow($booking_id, $this->channel_id, $string);
                 throw new \AdyenWebhookException(
@@ -233,10 +233,10 @@ class TourcmsBookingFinalise
                 $status_text = (string)$showBookingXml->booking->status_text;
                 $string = "Booking ID $booking_id is already confirmed. Status $status_text ($status)";
                 $this->logger->logBookingFlow($booking_id, $this->channel_id, $string);
-                throw new InternalException($string, 'CRITICAL');
+                throw new \InternalException($string, 'CRITICAL');
             }
         }
-        catch (InternalException $e) {
+        catch (\InternalException $e) {
             // don't throw an exception which will cancel the booking
             return true;
         }
@@ -261,10 +261,10 @@ class TourcmsBookingFinalise
                 $gift_code = (string)$showBookingXml->booking->promo->promo_code.' @ ';
                 $gift_code .= (string)$showBookingXml->booking->promo->value . ' ';
                 $gift_code .= (string)$showBookingXml->booking->promo->value_currency;
-                throw new FinanceException("Booking ID $booking_id. $currency $sales_revenue. Gift code used $gift_code. Manual split & payment settlement necessary");
+                throw new \FinanceException("Booking ID $booking_id. $currency $sales_revenue. Gift code used $gift_code. Manual split & payment settlement necessary");
             }
         }
-        catch (FinanceException $e) {
+        catch (\FinanceException $e) {
            // continue on...
         }
 
@@ -317,12 +317,12 @@ class TourcmsBookingFinalise
             $this->logger->logBookingFlow($booking_id, $this->channel_id, $string, $result);
 
 
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $string = "CRITICAL: cannot create_payment in TourCMS ".$e->getMessage();
             $this->logger->logBookingFlow($booking_id, $this->channel_id, $string);
             // throw this back up the chain
             $errorMsg = "CRITICAL: cannot create_payment in TourCMS on booking_id $booking_id";
-            throw new PublicException($errorMsg, 'CRITICAL');
+            throw new \PublicException($errorMsg, 'CRITICAL');
         }
     }
 
@@ -339,7 +339,7 @@ class TourcmsBookingFinalise
             return false;
         }
         else {
-            $xml = new SimpleXMLElement('<booking />');
+            $xml = new \SimpleXMLElement('<booking />');
             $xml->addChild('booking_id', $booking_id);
             // Optionally add a message
             $xml->addChild('audit_trail_note', $msg);
@@ -359,7 +359,7 @@ class TourcmsBookingFinalise
 
     public function cancelBooking($booking_id, $note = null)
     {
-        $xml = new SimpleXMLElement('<booking />');
+        $xml = new \SimpleXMLElement('<booking />');
         $xml->addChild('booking_id', $booking_id);
         // Optionally add a note explaining why the booking is cancelled
         $xml->addChild('note', $note);
@@ -380,7 +380,7 @@ class TourcmsBookingFinalise
             // Log new status in cart DB
             $this->cart->cancelBooking($booking_id, $this->channel_id);
         }
-        catch (TourcmsException $e) {
+        catch (\TourcmsException $e) {
             error_log("booking id $booking_id " . $e->getMessage());
             $this->logger->logBookingFlow($booking_id, $this->channel_id, $e->getMessage());
             // still want to return the reason to the end user, not something generic if we get the 'PREVIOUSLY CANCELLED' tourcms api error
@@ -396,7 +396,7 @@ class TourcmsBookingFinalise
         try {
             $this->tourcmsWrapper->add_note_to_booking($booking_id, $this->channel_id, $string, $note_type);
         }
-        catch (Exception $e) {
+        catch (\Exception $e) {
             error_log("booking id $booking_id " . $e->getMessage());
             $this->logger->logBookingFlow($booking_id, $this->channel_id, $e->getMessage());
             // non blocking error, just a log
