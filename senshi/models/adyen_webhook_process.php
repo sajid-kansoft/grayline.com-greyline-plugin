@@ -213,7 +213,7 @@ class AdyenWebhookProcess
         // Query the DB to get our items
         $sql =  $wpdb->prepare(
 	            
-            "SELECT * FROM wp_adyen_webhooks WHERE merchantReference = %s",
+            "SELECT * FROM adyen_webhooks WHERE merchantReference = %s",
             
             array(
                 $merchantReference
