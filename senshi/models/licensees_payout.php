@@ -108,13 +108,25 @@ class LicenseesPayout
 
     protected function licenseeName($supplier_tour_code)
     {
+        global $wpdb;
+
         $channel_name = "Unknown ($supplier_tour_code)";
         $channel_id = $this->licenseeChannelId($supplier_tour_code);
         if (empty($channel_id)) {
             return $channel_name;
         }
-        $db = Loader::db();
-        $row = $db->GetRow('select channel_name from SenshiGlwwCommission where channel_id = ?', $channel_id);
+
+        $query =  $wpdb->prepare(
+                
+            "select channel_name from SenshiGlwwCommission where channel_id = %s",
+            
+            array(
+                $channel_id
+            )
+        );
+
+        $row = $wpdb->get_result($query, ARRAY_A);
+
         if (is_array($row)) {
             if (isset($row['channel_name'])) {
                 $channel_name = $row['channel_name'];

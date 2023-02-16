@@ -2107,6 +2107,10 @@ function grayline_tourcms_refresh_availability() {
 	require_once('nc/refresh_availability.php');
 }
 
+function adyen_webhook_accept() {
+	require_once 'senshi/tools/adyen_webhook_accept.php';
+}
+
 // From currency hook function
 function grayline_tourcms_wp_currency() {
 		do_action('grayline_tourcms_wp_currency');
@@ -4012,7 +4016,7 @@ function get_popular_trending_tours($args) {
 			if(isset($args['suitable_for_solo'])) { $qs .="&suitable_for_solo=1"; }
 			if(isset($args['suitable_for_couples'])) { $qs .="&suitable_for_couples=1"; }
 
-			$result = $tourcms->search_tours($qs, $channel_id); 
+			$result = $tourcms->search_tours($qs, $channel_id);
 			if(empty($result->error)) {
 				// Try again to query the TourCMS API
 				$result = $tourcms->search_tours($qs, $channel_id);
@@ -4049,6 +4053,7 @@ function get_popular_trending_tours($args) {
 
 			$result2 = $tourcms->search_tours($qs2, $channel_id);
 			
+
 			if(empty($result2->error)) {
 				// Try again to query the TourCMS API
 				$result2 = $tourcms->search_tours($qs2, $channel_id);

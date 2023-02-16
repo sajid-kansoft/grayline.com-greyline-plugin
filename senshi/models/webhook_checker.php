@@ -71,13 +71,14 @@ class WebhookChecker extends Checker
      */
     protected function dbGetRow() : array
     {
-        $conn = $this->cartDb->getConn();
+        // $conn = $this->cartDb->getConn();
+        global $wpdb;
+        
         // Query the DB to get our items
-        $sql = $conn->prepare("SELECT * FROM adyen_webhooks WHERE success = :success ORDER BY itemId DESC LIMIT 1");
-        $details = array(':success' => 'true');
-        $sql->execute($details);
-
-        $rows = $sql->fetchAll();
+        $sql =  $wpdb->prepare("SELECT * FROM adyen_webhooks WHERE success = %s ORDER BY itemId DESC LIMIT 1",
+        array('true')
+        );
+        $rows = $wpdb->get_results($sql, ARRAY_A);
 
         if (is_array($rows) && isset($rows[0])) {
             $row = $rows[0];
