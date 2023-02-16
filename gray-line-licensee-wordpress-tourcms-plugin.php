@@ -4012,7 +4012,7 @@ function get_popular_trending_tours($args) {
 			if(isset($args['suitable_for_solo'])) { $qs .="&suitable_for_solo=1"; }
 			if(isset($args['suitable_for_couples'])) { $qs .="&suitable_for_couples=1"; }
 
-			$result = $tourcms->search_tours($qs, $channel_id);
+			$result = $tourcms->search_tours($qs, $channel_id); 
 			if(empty($result->error)) {
 				// Try again to query the TourCMS API
 				$result = $tourcms->search_tours($qs, $channel_id);
@@ -4039,7 +4039,7 @@ function get_popular_trending_tours($args) {
 					$country_code = array_search($country, $iso_country_list);
 					$qs2 .="&country=".$country_code;
 				}
-			} else if($args['key'] == "city-trending-tours") {
+			} else if($args['key'] == "city-trending-tours" || $args['key'] == "destination-trending-tours") {
 				$qs2 .="&location=".$args['city'];
 			}
 
@@ -4049,7 +4049,6 @@ function get_popular_trending_tours($args) {
 
 			$result2 = $tourcms->search_tours($qs2, $channel_id);
 			
-
 			if(empty($result2->error)) {
 				// Try again to query the TourCMS API
 				$result2 = $tourcms->search_tours($qs2, $channel_id);
@@ -4456,7 +4455,8 @@ function get_page_url($name, $type) {
         return $result;
 	   }
     }
-function city_country_page_breadcrumbs($post_id, $post_name) {
+
+function common_page_breadcrumbs($post_id, $post_name) {
 	$breadcrumbs_details = array();
 	// home
 	$breadcrumbs_details[0]['name'] = 'Home';
