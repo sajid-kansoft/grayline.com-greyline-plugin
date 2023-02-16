@@ -28,7 +28,7 @@ class TourSearchController extends MainController
         $country_json = get_option('countries');
         $gl_country_list = (array)json_decode($country_json);
 
-        if(isset($_GET['q'])) {
+        if(isset($_GET['q'])&& $_GET['q']!='') {
             
             $exploded = explode(", ", $_GET['q']);
 
@@ -74,7 +74,7 @@ class TourSearchController extends MainController
                 unset($_GET["q"]);
             } 
         }
-
+        
         include(GRAYLINE_LICENSEE_WORDPRESS_TOURCMS_PLUGIN_PATH."libraries/3rdparty/tourcms/config.php");
         $this->cacheBust = $cacheBust;
 
@@ -274,10 +274,11 @@ class TourSearchController extends MainController
         }
 
         // Search page breadcrumbs
-        if(count($this->breadcrumbs)) {
+
+        //if(count($this->breadcrumbs)) {
             $this->search_results->breadcrumb = search_page_breadcrumbs($this->breadcrumbs);
             
-        }
+        //}
 
         return $this->search_results;
     }
