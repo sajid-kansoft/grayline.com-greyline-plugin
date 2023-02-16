@@ -28,13 +28,16 @@ $item_info = date("jS M Y", strtotime($row["start_date"])) . " - <a href=\"" . $
 
 // Load old cached component file
 $component_file = $row["component_key"];
+
 // make sure we aren't looking up a null file
 if (!$component_file) {
 	wp_redirect(home_url("/cart?status=error&action=add&problem=nofile"));
+	exit();
 }
 $component_file = $cache_location . "availcache/" .  str_replace("/", "-slash-", $component_file . ".xml");
 if(!file_exists($component_file)) {
 	wp_redirect(home_url("/cart?status=error&action=add&problem=nofile"));
+	exit();
 }
 
 $old_component = simplexml_load_file($component_file);
