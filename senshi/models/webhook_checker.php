@@ -75,7 +75,7 @@ class WebhookChecker extends Checker
         global $wpdb;
         
         // Query the DB to get our items
-        $sql =  $wpdb->prepare("SELECT * FROM wp_adyen_webhooks WHERE success = %s ORDER BY itemId DESC LIMIT 1",
+        $sql =  $wpdb->prepare("SELECT * FROM adyen_webhooks WHERE success = %s ORDER BY itemId DESC LIMIT 1",
         array('true')
         );
         $rows = $wpdb->get_results($sql, ARRAY_A);

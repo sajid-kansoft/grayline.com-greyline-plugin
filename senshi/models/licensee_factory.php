@@ -1,10 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Iona Fortune iona@senshi.digital iona.fortune@icloud.com
- * Date: 22/03/2017
- * Time: 13:57
- */
+namespace GrayLineTourCMSSenshiModals;
+
+defined('GRAYLINE_WORDPRESS_TOURCMS_PLUGIN_EXECUTE') or die("Access Denied.");
 
 
 class LicenseeFactory
@@ -12,8 +9,7 @@ class LicenseeFactory
 
     public static function create($row)
     {
-        loadSenshiModal("licensee");
-        
+        loadSenshiModal("licensee"); 
         return new Licensee($row);
     }
 
