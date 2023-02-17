@@ -1299,7 +1299,7 @@ function grayline_tourcms_wp_save_tour( $post_id, $post ) {
 
 // Updates TourCMS information on a particular Tour/Hotel, called either when
 // editing in WordPress or when being viewed with a stale cache
-function grayline_tourcms_wp_refresh_info($post_id, $tour_id, $update_post_detail = false) {
+function grayline_tourcms_wp_refresh_info($post_id, $tour_id, $update_post_detail = -1) {
 
 	update_post_meta( $post_id, 'grayline_tourcms_wp_tourid', $tour_id);
 	
@@ -1360,13 +1360,21 @@ function grayline_tourcms_wp_refresh_info($post_id, $tour_id, $update_post_detai
 	}
 	
 
-	if($update_post_detail == true) { 
-		$syncTours = new GrayLineTourCMSControllers\SyncTours;
-		// update title and slug
+	if($update_post_detail == 1) {
+
+		update_post_meta( $post_id, '_yoast_wpseo_metadesc', (string)$tour->shortdesc);
+		update_post_meta( $post_id, '_yoast_wpseo_title', (string)$tour->tour_name_long);
+
 		$post_data = array(
 			'ID' =>  $post_id,
 			'post_title'    => (string)$tour->tour_name_long,
-			'post_name'     => $syncTours->set_slug((string) $tour->tour_name_long),
+		);
+
+		wp_update_post($post_data); 
+	} else if($update_post_detail == 2) { 
+		$post_data = array(
+			'ID' =>  $post_id,
+			'post_title'    => (string)$tour->tour_name_long,
 		);
 
 		wp_update_post($post_data);
@@ -2808,7 +2816,8 @@ function grayline_tourcms_wp_related_tours($post_id) {
 }
 
 require_once 'controllers/sync-tours.php';	
-	
+
+add_action( 'init', 'sync_tours' );
 function sync_tours() { 
 	$syncTours = new GrayLineTourCMSControllers\SyncTours();
 	$syncTours->save_tours();
@@ -3098,7 +3107,7 @@ add_action('grayline_tourcms_wp_faceboox_pixel', 'faceboox_pixel_script');
 
 function faceboox_pixel_script() {
 
-	if(get_option('grayline_tourcms_wp_fb_pixel_enabled') == 1 && array_key_exists('cookielawinfo-checkbox-analytics', $_COOKIE) && $_COOKIE['cookielawinfo-checkbox-analytics'] == 'yes') {
+	if(get_option('grayline_tourcms_wp_fb_pixel_enabled') == 1 && check_cookieyes_consent() == true && get_option('grayline_tourcms_wp_fb_pixel_id') !="") {
 
 		echo " <!-- Facebook Pixel Code -->
 			<script>
@@ -4503,4 +4512,24 @@ function common_page_breadcrumbs($post_id, $post_name) {
 	}
 
 	return $breadcrumbs_details;
+}
+
+
+function check_cookieyes_consent() { 
+
+	if(array_key_exists('cookielawinfo-checkbox-analytics', $_COOKIE) && $_COOKIE['cookielawinfo-checkbox-analytics'] == 'yes') {
+		return true;
+	} else if(array_key_exists('cookieyes-consent', $_COOKIE)) {
+		$consent = $_COOKIE['cookieyes-consent'];
+		$consent_val = explode(',', $consent);
+		if(count($consent_val)) {
+			foreach($consent_val as $cookie_val) {
+				if(substr_compare($cookie_val,"consent:yes",0) == 0) {
+					return true;
+				}
+			}
+		}
+	}
+
+	return false;
 }
