@@ -139,7 +139,7 @@ class SyncTours extends MainController {
 				$post_ID = wp_insert_post( $tour_post ); 
 
 				// Save tour info
-				$this->refresh_tour_info($post_ID, (int)$tour->tour_id, $tour); 
+				$this->refresh_tour_info($post_ID, (int)$tour->tour_id, $tour, 1); 
 			} else {
 				break;
 			}
@@ -153,24 +153,24 @@ class SyncTours extends MainController {
 		foreach($update_tour_details as $key => $tour) {
 			
 			$post_ID = $key;
-			$tour_update = array(
+			/*$tour_update = array(
 								'ID' =>  $post_ID,
 								'post_title'    => (string) $tour->tour_name,
-								'post_name'     => $this->set_slug((string) $tour->tour_name),
+								//'post_name'     => $this->set_slug((string) $tour->tour_name),
 								'post_status'   => 'publish',
 								'post_type'     => 'tour'
 							);
 
-			wp_update_post($tour_update);
+			wp_update_post($tour_update);*/
 
 			// Update tour info
-			$this->refresh_tour_info($post_ID, (int)$tour->tour_id, $tour); 
+			$this->refresh_tour_info($post_ID, (int)$tour->tour_id, $tour, 2); 
 		}
 	}
 
-	public function refresh_tour_info($post_ID, $tour_id, $tour) {
+	public function refresh_tour_info($post_ID, $tour_id, $tour, $update_post_detail) {
 
-		grayline_tourcms_wp_refresh_info($post_ID, $tour_id, true);
+		grayline_tourcms_wp_refresh_info($post_ID, $tour_id, $update_post_detail);
 
 		if(is_object($tour)) {
 			// update list_tours api data in wp_postmeta table
