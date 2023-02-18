@@ -1418,10 +1418,15 @@ function grayline_tourcms_wp_refresh_info($post_id, $tour_id, $update_post_detai
 	}
 
 	// Save tags
+
+
 	if(!empty($tour->tour_tags)) {
-		$tag_arr = array();
+		$tag_arr = array(); print_r($tour->tour_tags);
 		foreach($tour->tour_tags->tag as $tag) {
-			if (!str_contains($tag->token, 'suitable')) { 
+
+	
+
+			if (!str_contains($tag->token, 'suitable') && (string)$tag->value!="0") { 
 				$tag_arr[] = (string)$tag->token;
 			}
 		}
@@ -1430,10 +1435,11 @@ function grayline_tourcms_wp_refresh_info($post_id, $tour_id, $update_post_detai
 		if(count($tag_arr) > 0) {
 			$tags = implode(",",$tag_arr);
 		}
+print_r($tags);exit;
 		update_post_meta( $post_id, 'grayline_tourcms_wp_tour_tags', $tags);
 		
 	}
-	
+
 	// All geocode points
 	$points[] = array(
 		'geocode' => (string)$tour->geocode_start,
@@ -2817,7 +2823,6 @@ function grayline_tourcms_wp_related_tours($post_id) {
 
 require_once 'controllers/sync-tours.php';	
 
-add_action( 'init', 'sync_tours' );
 function sync_tours() { 
 	$syncTours = new GrayLineTourCMSControllers\SyncTours();
 	$syncTours->save_tours();
