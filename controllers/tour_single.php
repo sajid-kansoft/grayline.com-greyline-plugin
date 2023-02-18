@@ -546,7 +546,7 @@ class TourSingle extends MainController {
 
 public function get_tag($post_ID) {
 		
-		$default_tags = array('Hop on hop off', 'City card', 'Bike Tour', 'Boat Tour', 'Walking Tour', 'Food Tour (Food)', 'Museums', 'Theme Parks', 'Day trip', 'Multiday trip', 'Entrance Tickets', 'Classes');
+		$default_tags = array('Hop on hop off', 'City cards', 'Bike Tours', 'Boat Tours', 'Walking Tours', 'Food', 'Museums', 'Theme Parks', 'Day trips', 'Multiday trip', 'Entrance Tickets', 'Classes');
 
 		$tour_tags = get_post_meta($post_ID, 'grayline_tourcms_wp_tour_tags', true );
 		$tour_tags = explode(",", $tour_tags);
