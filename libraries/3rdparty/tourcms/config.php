@@ -151,7 +151,9 @@ if (!defined('CHANNEL_ID')) {
 if (!defined('API_PRIVATE_KEY')) {
     define('API_PRIVATE_KEY', "a08ceaeb009f");
 }
-
+if (!defined('TOURCMS_PRODUCTION_MODE')) {
+    define('TOURCMS_PRODUCTION_MODE', false);
+}
 // VEGAS TEST OFFERS
 //define("CHANNEL_ID", 6147);
 //define("API_PRIVATE_KEY", "5d2107f49c31");

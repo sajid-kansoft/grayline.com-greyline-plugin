@@ -4019,6 +4019,9 @@ function get_popular_trending_tours($args) {
 			
 		} else if($args['key'] == "city-trending-tours") {
 			$qs .="&location=".$args['city'];
+		} else if($args['key'] == "destination-trending-tours") {
+			$params = destination_search_params($args['city']);
+			$qs .="&".http_build_query($params);
 		}
 
 		if(isset($args['suitable_for_children'])) { $qs .="&suitable_for_children=1"; }
@@ -4083,8 +4086,12 @@ function get_popular_trending_tours($args) {
 					$country_code = array_search($country, $iso_country_list);
 					$qs2 .="&country=".$country_code;
 				}
-			} else if($args['key'] == "city-trending-tours" || $args['key'] == "destination-trending-tours") {
+			} else if($args['key'] == "city-trending-tours") {
 				$qs2 .="&location=".$args['city'];
+			} else if($args['key'] == "destination-trending-tours") {
+				$params = destination_search_params($args['city']);
+				$qs2 .="&".http_build_query($params);
+				
 			}
 			$qs2 .= "&404_tour_url=all";
 
@@ -4126,6 +4133,43 @@ function get_popular_trending_tours($args) {
 
 	$result = get_data_from_transient($cache_key); 
 	return $result;
+}
+
+function destination_search_params($param) { 
+	$search_params = [];
+	$country_json = get_option('countries');
+	$gl_country_list = (array)json_decode($country_json);
+
+	if(isset($param) && $param!='') {
+
+		$exploded = explode(", ", $param);
+
+		if (count($exploded) > 1) {
+
+			$country = strtoupper($exploded[count($exploded) - 1]);
+
+
+			if (in_array($country, $gl_country_list)) {
+
+				unset($exploded[count($exploded) - 1]);
+
+				$location = implode(", ", $exploded);
+				$search_params["country"] = array_search($country, $gl_country_list);
+				
+
+				$search_params['location'] = $location;
+
+			} 
+		} elseif (in_array(strtoupper($exploded[0]), $gl_country_list)) {
+			
+			$search_params["country"] = array_search(strtoupper($exploded[0]), $gl_country_list);
+				
+		} else {
+			$search_params['keywords'] = $_GET["q"];
+		} 
+	}
+
+	return $search_params;
 }
 
 add_action('grayline_tourcms_wp_get_trending_tours', 'get_popular_trending_tours', 10, 1);
@@ -4544,3 +4588,4 @@ function check_cookieyes_consent() {
 
 	return false;
 }
+

@@ -28,7 +28,7 @@ class CronCacheLocations
         
 		if(!empty($locs)) {
 
-			$locs = json_decode($locs);
+			$locs = json_decode($locs, true);
 
 			$previous = array();
 			
