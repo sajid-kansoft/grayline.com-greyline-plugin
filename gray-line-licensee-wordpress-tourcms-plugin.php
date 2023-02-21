@@ -1421,7 +1421,7 @@ function grayline_tourcms_wp_refresh_info($post_id, $tour_id, $update_post_detai
 
 
 	if(!empty($tour->tour_tags)) {
-		$tag_arr = array(); print_r($tour->tour_tags);
+		$tag_arr = array(); 
 		foreach($tour->tour_tags->tag as $tag) {
 
 	
@@ -1435,7 +1435,7 @@ function grayline_tourcms_wp_refresh_info($post_id, $tour_id, $update_post_detai
 		if(count($tag_arr) > 0) {
 			$tags = implode(",",$tag_arr);
 		}
-print_r($tags);exit;
+
 		update_post_meta( $post_id, 'grayline_tourcms_wp_tour_tags', $tags);
 		
 	}
@@ -2723,7 +2723,7 @@ function grayline_tourcms_wp_related_tours($post_id) {
 						'type' => 'numeric',
 						'compare' => 'In'
 					),
-										array( 
+					array( 
 						'key'     => 'grayline_tourcms_wp_from_price',
 						'value'   => 0,
 						'compare' =>'!='
@@ -3988,7 +3988,7 @@ function get_popular_trending_tours($args) {
 
 	if(empty($cache_result)) { 
 		$cache_result = get_data_from_transient($cache_key); 
-		if(!empty($cache_result)) {  
+		if(!empty($cache_result)) {
 			$result = $cache_result; 
 			return $result;
 		} 
@@ -4046,6 +4046,7 @@ function get_popular_trending_tours($args) {
 		if(isset($args['selected_tours']) && count($args['selected_tours']) >0) {
 			$tour_ids = implode(",", $args['selected_tours']);
 			$qs = "tour_id=".$tour_ids;
+			$qs .= "&404_tour_url=all";
 
 			if(isset($args['suitable_for_children'])) { $qs .="&suitable_for_children=1"; }
 			if(isset($args['suitable_for_solo'])) { $qs .="&suitable_for_solo=1"; }
@@ -4081,6 +4082,7 @@ function get_popular_trending_tours($args) {
 			} else if($args['key'] == "city-trending-tours" || $args['key'] == "destination-trending-tours") {
 				$qs2 .="&location=".$args['city'];
 			}
+			$qs2 .= "&404_tour_url=all";
 
 			if(isset($args['suitable_for_children'])) { $qs2 .="&suitable_for_children=1"; }
 			if(isset($args['suitable_for_solo'])) { $qs2 .="&suitable_for_solo=1"; }
