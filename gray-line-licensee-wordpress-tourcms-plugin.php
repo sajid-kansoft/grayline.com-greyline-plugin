@@ -3363,11 +3363,14 @@ function udpating_tour_urls() {
 add_action('init', 'udpating_tour_urls', 1);
 add_action( 'udpating_tour_urls_hook', 'udpating_tour_urls_exec' );
 
-
 function udpating_tour_urls_exec()
 {     
-	$cronUrlUpdate = new GrayLineTourCMSControllers\CronUrlUpdate();
-	$result = $cronUrlUpdate->run();
+	include(GRAYLINE_LICENSEE_WORDPRESS_TOURCMS_PLUGIN_PATH."libraries/3rdparty/tourcms/config.php");
+
+	if(defined("TOURCMS_PRODUCTION_MODE") && TOURCMS_PRODUCTION_MODE == true) {
+		$cronUrlUpdate = new GrayLineTourCMSControllers\CronUrlUpdate(); 
+		$result = $cronUrlUpdate->run();
+	}
 }
 
 function custom_badge_code($custom2)
