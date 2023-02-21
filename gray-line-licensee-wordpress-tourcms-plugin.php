@@ -4021,7 +4021,8 @@ function get_popular_trending_tours($args) {
 		if(isset($args['suitable_for_children'])) { $qs .="&suitable_for_children=1"; }
 		if(isset($args['suitable_for_solo'])) { $qs .="&suitable_for_solo=1"; }
 		if(isset($args['suitable_for_couples'])) { $qs .="&suitable_for_couples=1"; }
-
+		$qs .= "&404_tour_url=all";
+		
 		$result = $tourcms->search_tours($qs, $channel_id);
 		if(empty($result->error)) {
 			// Try again to query the TourCMS API
