@@ -827,35 +827,34 @@ class Checkout extends MainController
 
         // Write dataLayer
         // E-commerce impressions
-        // $dl_array = array(
-        //     'ecommerce' => array(
-        //         'currencyCode' => $this->items[0]["currency"],
-        //         'checkout' => array(
-        //             'actionField' => array(
-        //                 'option' => (string)$this->gateway_type,
-        //             ),
-        //             'products' => $impressions,
-        //         ),
-        //     ),
-        // );
+        $dl_array = array(
+            'ecommerce' => array(
+                'currencyCode' => $this->items[0]["currency"],
+                'checkout' => array(
+                    'actionField' => array(
+                        'option' => (string)$this->gateway_type,
+                        'action' => "checkout"
+                    ),
+                    'products' => $impressions,
+                ),
+            ),
+        );
 
-        // $dl_array["sale_currency"] = $this->items[0]["currency"];
+        $dl_array["sale_currency"] = $this->items[0]["currency"];
 
-        // if (count($channel_ids) == 1) {
-        //     $dl_array["is_licensee_page"] = "true";
-        //     $dl_array["licensee_channel_id"] = $channel_ids[0];
-        // }
+        if (count($channel_ids) == 1) {
+            $dl_array["is_licensee_page"] = "true";
+            $dl_array["licensee_channel_id"] = $channel_ids[0];
+        }
 
-        // $dl = json_encode($dl_array);
-
+        $dl = json_encode($dl_array);
+  
+        $this->data_layer = $dl;
         // $this->data_layer = "dataLayer.push($dl)";
 
         /*
             End dataLayer
         */
-
-
-
 
     }
 

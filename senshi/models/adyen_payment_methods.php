@@ -82,7 +82,7 @@ class AdyenPaymentMethods
 
             return $this->json;
 
-        } catch (AdyenPaymentException $e) {
+        } catch (\AdyenPaymentException $e) {
             throw new \Exception($publicError);
         }
     }
@@ -115,22 +115,19 @@ class AdyenPaymentMethods
             } else {
 
                 $errorMsg = "ADYEN ERROR, Payment Methods called, currency or amount not set. Currency $currency, amount $amount, countryCode $countryCode";
-                throw new AdyenPaymentException($errorMsg);
+                throw new \AdyenPaymentException($errorMsg);
             }
 
-        } catch (AdyenPaymentException $e) {
-            print_r('string1');
-            print_r($errorMsg);die;
+        } catch (\AdyenPaymentException $e) {
             $errorMsg = $e->getMessage();
 
             throw new \Exception($publicError);
         } catch (AdyenException $e) {
-            print_r('string2');
-            print_r($errorMsg);die;
+
             $errorMsg = "ADYEN ERROR, AdyenException Payment Methods ";
             $errorMsg .= "{$e->getErrorType()}, {$e->getPspReference()}, {$e->getStatus()}, {$e->getCode()}, {$e->getFile()}, {$e->getLine()}, {$e->getMessage()}";
              // print_r($errorMsg);
-            throw new AdyenPaymentException($errorMsg, 'CRITICAL');
+            throw new \AdyenPaymentException($errorMsg, 'CRITICAL');
 
         } catch (\Exception $e) {
             print_r('string3');

@@ -73,11 +73,11 @@ class MainController
                 $result = $tc->update_tour_url( $tour_id, $channel_id, $extra );
             }
 		}
-		catch( TourcmsException $e ) {
+		catch( \TourcmsException $e ) {
 			// This can stop JSON repsonses from working, so let's just log the error instead.
 			//echo "<div class='message error'>We seem to be having issues connecting to our tour source. We are sorry for the inconvenience. </div>";
 		}
-		catch ( Exception $e ) {
+		catch ( \Exception $e ) {
 			//echo "<div class='message error'>" . $e->getMessage() . "</div>";
 		}
 

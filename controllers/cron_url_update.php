@@ -22,7 +22,7 @@ class CronUrlUpdate extends MainController {
 			
 			$i = 0;
 			if ( empty($list->tour) )
-				throw new Exception( "No tours to update" );
+				throw new \Exception( "No tours to update" );
 			else {
 				$tour_list = is_array( $list->tour ) ? $list->tour : array( $list->tour );
 				foreach ( $tour_list as $tour ) {
