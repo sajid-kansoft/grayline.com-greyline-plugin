@@ -189,20 +189,22 @@ function get_original_channel_id($tour_id)
     if(count($posts) == 0) { 
         return CHANNEL_ID;
     } else {
+        
         $post_ID = $posts[0]->ID;
         $original_channel_id1 = get_post_meta($post_ID, 'grayline_tourcms_wp_original_channel_id');
+        
         if(is_array($original_channel_id1)) { 
             $original_channel_id = isset($original_channel_id1[0])?$original_channel_id1[0]:0;
         } else {
             $original_channel_id = $original_channel_id1;
         }
     }
-
+   
     if (empty($original_channel_id)) {
         return CHANNEL_ID;
     }
 
-    return $original_channel_id[0];
+    return $original_channel_id;
 }
 
 function get_original_tour_id($tour_id)
@@ -236,7 +238,7 @@ function get_original_tour_id($tour_id)
         return $tour_id;
     }
 
-    return $original_tour_id[0];
+    return $original_tour_id;
 }
 
 function get_licensee_name($tour_id)

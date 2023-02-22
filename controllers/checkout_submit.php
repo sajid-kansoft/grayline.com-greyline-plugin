@@ -155,11 +155,10 @@ class CheckoutSubmitController extends MainController {
 
 			$dl = json_encode($dl_array, JSON_UNESCAPED_SLASHES);
 
-			$this->data_layer = "dataLayer.push($dl)";
-
+			$this->data_layer = $dl;
+			// $this->data_layer = "dataLayer.push($dl)";
 
 		 endif;
-
 	}
 
     private function feefoPrePostCampagin($booking_info, $channel_id)
