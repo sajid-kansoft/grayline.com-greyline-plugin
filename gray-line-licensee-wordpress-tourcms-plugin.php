@@ -4417,7 +4417,7 @@ function tour_page_breadcrumbs() {
 
 
 	// country
-	$breadcrumbs_details[1]['name'] = $country;
+	$breadcrumbs_details[1]['name'] = stripslashes($country);
 	$breadcrumbs_details[1]['url'] = home_url("/search?q=".$country);
 	$breadcrumbs_details[1]['arrow'] = true;
 	if(!empty($country)) {
@@ -4430,7 +4430,7 @@ function tour_page_breadcrumbs() {
 	} 
 
 	// location
-	$breadcrumbs_details[2]['name'] = $location;
+	$breadcrumbs_details[2]['name'] = stripslashes($location);
 	$breadcrumbs_details[2]['url'] = home_url("/search?q=".$location);
 	$breadcrumbs_details[2]['arrow'] = false;
 	if(!empty($location)) {
@@ -4455,7 +4455,7 @@ function search_page_breadcrumbs($breadcrumbs_details) {
    $breadcrumbs['home'] = home_url("/");
 
    if(isset($breadcrumbs_details['search_keyword'])) {
-       $breadcrumbs['search_keyword'] = $breadcrumbs_details['search_keyword'];
+       $breadcrumbs['search_keyword'] = stripslashes($breadcrumbs_details['search_keyword']);
    } else if((isset($breadcrumbs_details['country']) && isset($breadcrumbs_details['location'])) || (isset($breadcrumbs_details['country']) && !isset($breadcrumbs_details['location']))) { 
        $country_data = get_page_url($breadcrumbs_details['country'], 'country');
        if(isset($country_data['post_id'])) {
@@ -4472,7 +4472,7 @@ function search_page_breadcrumbs($breadcrumbs_details) {
        
    }
    else if(!isset($breadcrumbs_details['country']) && isset($breadcrumbs_details['location'])) { 
-       $breadcrumbs['location'] = $breadcrumbs_details['location'];
+       $breadcrumbs['location'] = stripslashes($breadcrumbs_details['location']);
    }
 
    return $breadcrumbs;
@@ -4555,14 +4555,14 @@ function common_page_breadcrumbs($post_id, $post_name) {
 	
 	// selected page
 	if(!empty($selected_page_detail)) {
-		$breadcrumbs_details[1]['name'] = $selected_page_detail->post_title;
+		$breadcrumbs_details[1]['name'] = stripslashes($selected_page_detail->post_title);
 		$breadcrumbs_details[1]['url'] = get_permalink($selected_page_detail->ID);
 		$breadcrumbs_details[1]['arrow'] = true;
 
-		$breadcrumbs_details[2]['name'] = $post_name;
+		$breadcrumbs_details[2]['name'] = stripslashes($post_name);
 		$breadcrumbs_details[2]['arrow'] = false;
 	} else {
-		$breadcrumbs_details[1]['name'] = $post_name;
+		$breadcrumbs_details[1]['name'] = stripslashes($post_name);
 		$breadcrumbs_details[1]['arrow'] = false;
 	}
 
